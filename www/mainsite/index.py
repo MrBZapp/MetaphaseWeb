@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-	return 'New Site is active!'
+	return 'Push harder!'
 
 @app.route('/data')
 def names():
