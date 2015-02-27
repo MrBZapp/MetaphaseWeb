@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<title>	{{tile}} </title>
+		{% if bootstrap:%}
+			<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+			<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css"/>
+			<link rel="stylesheet" type="text/css" href="css/style.css">
+		{% endif %}
+		{# block for expanding the head template #}
+		{% block head %}{% endblock %}	
+	</head>
+
+	<body>
+		<div id="mainblock">
+			{% block mainblock %}{% endblock %}
+		</div>
+		<div id="footer">
+        	{% block footer %}
+        	&copy; Copyright 2015.
+        	{% endblock %}
+    	</div>
+	</body>
+</html>
+

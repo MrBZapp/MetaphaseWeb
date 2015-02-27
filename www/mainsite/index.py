@@ -4,7 +4,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-	return 'Push it real good... OR ELSE!'
+	base = render_template('base.html')
+	return base
 
 @app.route('/data')
 def names():
