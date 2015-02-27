@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-	return 'Push harder...Dammit!'
+	return 'Push... DIRECTLY!'
 
 @app.route('/data')
 def names():
