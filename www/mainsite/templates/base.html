@@ -1,24 +1,21 @@
 <html>
 	<head>
 		<title>	{{title}} </title>
-		{% if bootstrap:%}
-			<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
-			<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css"/>
-			<link rel="stylesheet" type="text/css" href="css/style.css">
+		{% if bootstrap == True:%}
+			<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.min.css')}}"/>
+			<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap-theme.min.css/')}}"/>
 		{% endif %}
+			<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}"/>
 		{# block for expanding the head template #}
 		{% block head %}{% endblock %}	
 	</head>
 
 	<body>
-		<div id="mainblock">
-			{% block mainblock %}{% endblock %}
+		<div id="layout_block">
+			{% block layout_header %} {% include 'layout_header.html' %} {% endblock %}
+			{% block layout_body %} {% include 'layout_body.html' %} {% endblock %}
+			{% block layout_footer %} {% include 'layout_footer.html' %} {% endblock %}
 		</div>
-		<div id="footer">
-        	{% block footer %}
-        	&copy; Copyright 2015.
-        	{% endblock %}
-    	</div>
 	</body>
 </html>
 

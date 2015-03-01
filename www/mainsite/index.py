@@ -1,11 +1,15 @@
 from flask import Flask, jsonify, render_template
 
 app = Flask(__name__)
-
 @app.route('/')
 def index():
-	base = render_template('base.html', title="home", bootstrap="TRUE")
-	return base
+	base = app.jinja_env.get_template('index.html')
+	#header = app.jinja_env.get_template('layout_header.html')
+	#base = app.jinja_env.join_path(header, base)
+	#base = app.jinja_env.join_path('layout_body.html', base)
+	#base = app.jinja_env.join_path('layout_footer.html', base)
+	#base = render_template('layout_header.html', title="home", bootstrap="TRUE")
+	return render_template(base, title="home", bootstrap=True)
 
 @app.route('/data')
 def names():
@@ -17,4 +21,4 @@ def templated():
 	return render_template('test.html')
 
 if __name__ == '__main__':
-	app.run()
+	app.run(debug=True)
