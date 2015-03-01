@@ -16,9 +16,5 @@ def names():
 	data = {"names": ["John", "Jacob", "Jingle-heimer", "Schmidt"]}
 	return jsonify(data)
 
-@app.route('/template')
-def templated():
-	return render_template('test.html')
-
 if __name__ == '__main__':
 	app.run()
