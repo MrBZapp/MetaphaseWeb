@@ -1,0 +1,57 @@
+body {
+    background-color: #eee;
+}
+
+#titlebar {
+    color: black;
+    background: url(/static/img/Metaphase_header.png);
+    background-size: 726px 90px;
+    background-repeat: no-repeat;
+    width: 75%;
+    min-width: 726px;
+    height: 110px;
+    position: relative;
+    margin: 0 auto;
+}
+
+##titlebar a {
+#    font-size: 15px;
+#    background: #000;
+#    color: #FFF;
+#    margin: 3 auto;
+#    padding: 5px;
+#}
+
+#navdiv {
+    width: 75%;
+   #height: 20px;
+    position: absolute;
+    bottom: 20px;
+    right: 0;
+    #background-color: black;
+    #color: white;
+}
+
+#submenu {
+    height: 20px;
+    background-color: black;
+    width: 100%;
+    right: 0;
+    position: absolute;
+    bottom: 0;
+}
+
+#layout_body {
+    border-color: black;
+    border-left: solid;
+    width: 75%;
+    min-width: 726px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+#layout_footer{
+    min-width: 726px;
+    width: 75%;
+    margin: 0 auto;
+}
