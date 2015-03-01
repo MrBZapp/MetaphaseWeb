@@ -1,11 +1,15 @@
 <div id="titlebar">
 	<div class="row" id="navdiv">
-		<div class="col-xs-3">Home</div>
-		<div class="col-xs-3">Modules</div>
-		<div class="col-xs-3">One</div>
-		<div class="col-xs-3">One</div>
+		{% for href, id, caption in [
+	    ('/', 'index', 'Index'),
+	    ('/modules/', 'modules', 'Modules'),
+	    ('/oddities/', 'oddities', 'Oddities'),
+	    ('/order/', 'order', 'Order'),
+	    ('/about/', 'about', 'About'),
+		] %}
+			<div class = "navlink" {% if id == active_page %} id="active"{% endif %}>
+				<a href="{{ href|e }}">{{ caption|e }}</a>
+			</div>
+		{% endfor %}
 	</div>
-	<div id="submenu">
-		
-	</div>	
 </div>

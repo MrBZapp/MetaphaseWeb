@@ -3,7 +3,8 @@ from flask import Flask, jsonify, render_template
 app = Flask(__name__)
 @app.route('/')
 def index():
-	base = app.jinja_env.get_template('index.html')
+	page_vars = {"active_page": "index"}
+	base = app.jinja_env.get_template('index.html', globals=page_vars )
 	#header = app.jinja_env.get_template('layout_header.html')
 	#base = app.jinja_env.join_path(header, base)
 	#base = app.jinja_env.join_path('layout_body.html', base)
@@ -17,4 +18,4 @@ def names():
 	return jsonify(data)
 
 if __name__ == '__main__':
-	app.run()
+	app.run(debug=True)
