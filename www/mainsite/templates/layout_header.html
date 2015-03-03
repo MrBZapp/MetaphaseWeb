@@ -1,15 +1,30 @@
 <div id="titlebar">
-	<div class="row" id="navdiv">
-		{% for href, id, caption in [
-	    ('/', 'index', 'Index'),
+	<div id="navigation">	
+		<div class="navblock" id="leftpad">
+		    <div class="nav-caption"></div>
+   	  	        <div class="nav-bottom"></div>
+    	</div>
+
+	{% for href, id, caption in [
+	    ('/', 'index', 'Home'),
 	    ('/modules/', 'modules', 'Modules'),
 	    ('/oddities/', 'oddities', 'Oddities'),
 	    ('/order/', 'order', 'Order'),
 	    ('/about/', 'about', 'About'),
-		] %}
-			<div class = "navlink" {% if id == active_page %} id="active"{% endif %}>
-				<a href="{{ href|e }}">{{ caption|e }}</a>
-			</div>
-		{% endfor %}
+	  ] %}
+
+	  	<div class="navblock">
+			<a  href="{{ href|e }}">
+			    <div class="nav-accent" {% if id == active_page %} id="active"{% endif %}>&nbsp;</div>  
+	  	        <div class="nav-caption"> {{ caption|e }} </div>
+   	  	        <div class="nav-bottom"></div>
+  	        </a>
+    	</div>
+	{% endfor %}
+
+		<div class="navblock" id="rightpad">
+		    <div class="nav-caption"></div>
+   	  	        <div class="nav-bottom"></div>
+    	</div>
 	</div>
 </div>
