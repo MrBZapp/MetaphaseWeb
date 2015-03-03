@@ -2,7 +2,7 @@
 	<div id="navigation">	
 		<div class="navblock" id="leftpad">
 		    <div class="nav-caption"></div>
-   	  	        <div class="nav-bottom"></div>
+   	  	       <!-- <div class="nav-bottom"></div> -->
     	</div>
 
 	{% for href, id, caption in [
@@ -17,14 +17,14 @@
 			<a  href="{{ href|e }}">
 			    <div class="nav-accent" {% if id == active_page %} id="active"{% endif %}>&nbsp;</div>  
 	  	        <div class="nav-caption"> {{ caption|e }} </div>
-   	  	        <div class="nav-bottom"></div>
+   	  	        <!-- <div class="nav-bottom"></div> !-->
   	        </a>
     	</div>
 	{% endfor %}
 
 		<div class="navblock" id="rightpad">
 		    <div class="nav-caption"></div>
-   	  	        <div class="nav-bottom"></div>
+   	  	    <!--  <div class="nav-bottom"></div>  -->
     	</div>
 	</div>
 </div>
