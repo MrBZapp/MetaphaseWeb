@@ -12,6 +12,11 @@ def index():
 	#base = render_template('layout_header.html', title="home", bootstrap="TRUE")
 	return render_template(base, title="home", bootstrap=True)
 
+@app.route('/mastering')
+def master():
+	base = app.jinja_env.get_template('mastering/master.html')
+	return render_template(base, title="Very Good Mastering", bootstrap=True)
+
 @app.route('/data')
 def names():
 	data = {"names": ["John", "Jacob", "Jingle-heimer", "Schmidt"]}

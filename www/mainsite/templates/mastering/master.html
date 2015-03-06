@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% set active_page = "Mastering_Home" %}
+{% block head %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% endblock %}
+
+{% block pagestyle %}
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/mastering_style.css')}}"/>
+{% endblock %}
+
+{% block layout_header%}
+	{% include "mastering/mastering_head.html" %}
+{% endblock %}
+
+{% block layout_body %}
+	{% include "mastering/mastering_body.html" %}
+{% endblock %}
