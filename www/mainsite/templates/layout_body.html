@@ -1,9 +1,18 @@
 <div id="submenu">
-	
 </div>	
 <div id="layout_body">
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic in accusamus molestiae consequatur illum ea nesciunt harum, laboriosam ipsum, tenetur, repellendus aut praesentium. Eos nam, cum excepturi aperiam itaque eius!</p>
-	<p>Delectus, incidunt deleniti iste laborum, odit consectetur hic nesciunt non esse maxime voluptates repudiandae a placeat deserunt, quae perferendis doloremque quisquam, aperiam voluptatum expedita ipsa quo. Odio, quia a architecto.</p>
-	<p>Cupiditate illo quae architecto, dolor atque minima quia doloribus repudiandae, quidem deserunt nam tempore nemo ipsam explicabo aspernatur officiis debitis impedit. Quibusdam officiis ad molestias. Dolore in pariatur ipsam unde.</p>
-	<p>Nesciunt enim magnam ipsum eaque ducimus, velit porro doloribus illum, excepturi assumenda perspiciatis earum beatae nemo veniam atque, quam voluptates voluptate magni quae tempora! Consequatur alias illo quasi, laudantium exercitationem.</p>
+	{% for header in ['One','Two','Three']: %}
+	<div class="post">
+		<div class="post-header">{{header|e}}</div>
+		<div class="content">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</div>
+		<div class="footer">--Z</div>
+	</div>	
+	{%endfor%}
 </div>

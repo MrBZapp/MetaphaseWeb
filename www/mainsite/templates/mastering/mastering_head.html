@@ -1,25 +1,29 @@
 <div class="header">
 	<div class="container-fluid">
-			{% for href, id, caption, color in [
-			    ('/', 'index', 'Home', 'red'),
-			    ('/contact/', 'contact', 'Contact/ Quote', 'blue'),
-			    ('/about/', 'about', 'About', 'yellow'),
-			  ] %}
-				<a  href="mastering{{ href|e }}">	
-				  	<div class="title_link">
-				        <div class="table">
-				        	<div class="table-row">
-					            <div class="table-cell {{ color|e }}" id="content">
-					            	<h3>{{ caption|e }}</h3>
-					            </div>	
-			  				</div>
-			  				<div class="table-row">
-								<div class="table-cell accent {{ color|e }}"> &nbsp;</div>
-			  				</div>
-			  			</div>
-			  		</div>	
-		    	</a>
+	{% for href, id, caption, color in [
+	    ('/', 'index', 'Home', 'purple'),
+	    ('/modules/', 'modules', 'Modules', 'purple'),
+	    ('/oddities/', 'oddities', 'Oddities', 'purple'),
+	    ('/order/', 'order', 'Order', 'purple'),
+	    ('/about/', 'about', 'About', 'purple'),
+	  ] %}
+		<a href="mastering{{ href|e }}">	
+		  	<div class="title_link">
+		        <div class="table">
+		        	<div class="table-row">
+			            <div class="table-cell {{ color|e }}" id="content">
+			            	{{ caption|e }}
+			            </div>	
+	  				</div>
+	  				<div class="table-row">
+						<div class="table-cell accent {{ color|e }}">&nbsp;</div>
+	  				</div>
+	  			</div>
+	  		</div>	
+    	</a>
 			{% endfor %}
-		</div>
 	</div>
+</div>
+<div class="submenu">
+	&nbsp;
 </div>

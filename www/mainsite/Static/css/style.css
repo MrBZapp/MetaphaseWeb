@@ -1,7 +1,5 @@
-
-
 body {
-    background-color: #333;
+    background: linear-gradient(135deg, #222, #444);
     color: #ccc;
     border-color: #777;
     font: monospace;
@@ -15,23 +13,25 @@ body {
 
 
 #layout_body {
+    position: relative;
     background-color: #202020;
     border-left: solid;
     border-width: 1px;
     width: 75%;
-    border-color: #CCC;
+    border-color: #599;
     padding: 10pt;  
-    margin-left: 120px;
+    margin-left: 121px;
+    box-shadow:  -2px -2px 5px #111;
+    z-index: -1;
 }
 
 #layout_footer{
-    min-width: 726px;
+    margin-left:  120px;
     width: 75%;
-    margin: 0 auto;
 }
 
 #titlebar {
-    background: url(/static/img/Metaphase_header_gray.png);
+    #background: url(/static/img/Metaphase_header_gray.png);
     background-size: 726px 90px;
     background-repeat: no-repeat;
     width: 100%;
@@ -67,20 +67,21 @@ body {
         background-color: #CCC;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
-
+        box-shadow:  -2px -2px 5px #111;
     }
         .navblock:hover .nav-accent{
-            background-color: #cc2;
+            background-color: #348;
         }
      
         #active {
-            background-color: #a33;
+            background-color: #599;
         }
 
     .nav-caption {
         float: right;
         padding-left: 10pt;
         padding-right: 15pt;
+        text-shadow:  -2px -2px 5px #111;
     }
 
     .nav-bottom{
@@ -97,6 +98,8 @@ body {
     height: 25pt;
     background-color: #777;
     width: 100%;
+    box-shadow:  -2px -2px 5px #111;
+    z-index: 1;
 }
 
 #leftpad{
@@ -109,4 +112,32 @@ body {
 }
 .clearboth {
     clear: both;
+}
+
+
+.post {
+    #margin-top: 10px;
+    margin-bottom: 20px;
+    border-top-left-radius: 10px;
+    background-color: #777;
+    box-shadow: -2px -2px 5px #010;
+}
+
+.post-header {
+    border-bottom: solid;
+    border-color: #599;
+    border-top-left-radius: 10px;
+    background-color: #348;
+    padding: 5px;
+    padding-left: 10px;
+    font-size: larger;
+}
+
+.post .content {
+    padding: 10px;
+}
+
+.post .footer {
+    background-color: #666;
+    padding-left: 10px;
 }

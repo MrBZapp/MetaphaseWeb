@@ -1,9 +1,10 @@
 body {
-	background-color: #aaa;
-	color: #eee;
+	background: linear-gradient(135deg, #222, #444);
+	color: #ddd;
 }
+
 a {
-	color: #eee;
+	color: #ddd;
 }
 
 a:hover {
@@ -14,22 +15,34 @@ a:hover {
 
 .header {
 	width: 100%;
-	background-color: #777;
-	padding: 10px;
-	border-bottom: solid;
-	border-width: 2px;
-	border-color: #555;	
+	background: linear-gradient(90deg, #222, #444);
+	padding-top: 50px;	
 	text-align: center;
+	font-size: 0pt;
+}
+
+.submenu {
+    border-top: solid;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: #CCC;
+    height: 25pt;
+    background-color: #777;
+    width: 100%;
 }
 
 .mastering_body {
+
 }
+
 .title_link {
+	font-size: 14pt;
 	display: inline-block;
-	margin-left: 5px;
-	margin-right: 5px;
-    background-color: #aaa;
-	box-shadow: -2px -2px 5px #555;
+	margin-left: 10px;
+	margin-right: 10px;
+    background-color: #676767;
+	box-shadow: -2px -2px 5px #121;
+	#border-radius: 5px;
 }
 
 .table{
@@ -56,6 +69,7 @@ a:hover {
 .table-cell.accent {
 	border-top: solid;
 	border-width: 2px;
+	font-size: 4pt;
 }
 
 .accent.red {
@@ -73,6 +87,12 @@ a:hover {
 	border-color: #bb0;
 }
 
+.accent.purple {
+	background-color: #737;
+	border-color: #606;	
+}
+
+
 .title_link:hover .accent.red {
 	background-color: #e00;
 }
@@ -86,7 +106,9 @@ a:hover {
 	background-color: #ee0;
 }
 
-
+.title_link:hover .accent.purple {
+	background-color: #707;
+}
 /* post styles */
 .mastering_body {
 	width: 60%;
@@ -96,15 +118,15 @@ a:hover {
 	margin-top: 10px;
 	margin-bottom: 20px;
 	border-top-left-radius: 10px;
-	background-color: #777;
-	box-shadow: -2px -2px 5px #555;
+	background-color: #676767;
+	box-shadow: -2px -2px 5px #010;
 }
 
 .post-header {
 	border-bottom: solid;
-	border-color: #b00;
+	border-color: #606;
 	border-top-left-radius: 10px;
-	background-color: #d00;
+	background-color: #737;
 	padding: 5px;
 	padding-left: 10px;
 	font-size: larger;
