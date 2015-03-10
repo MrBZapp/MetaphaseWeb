@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(135deg, #222, #444);
+    background: linear-gradient(135deg, #222, #444) fixed;
     color: #ccc;
     border-color: #777;
     font: monospace;
@@ -7,7 +7,7 @@ body {
 }
 
 #layout_block {
-    padding-top: 5px;
+#    padding-top: 5px;
     min-width: 600px;
 }
 
@@ -18,7 +18,7 @@ body {
     border-left: solid;
     border-width: 1px;
     width: 75%;
-    border-color: #599;
+    border-color: #06c;
     padding: 10pt;  
     margin-left: 121px;
     box-shadow:  -2px -2px 5px #111;
@@ -31,12 +31,25 @@ body {
 }
 
 #titlebar {
-    #background: url(/static/img/Metaphase_header_gray.png);
-    background-size: 726px 90px;
     background-repeat: no-repeat;
     width: 100%;
-    min-height: 95px;
+    min-height: 45px;
     position: relative;
+}
+
+
+#logo {
+   position: relative;
+   padding: 10px;
+}
+
+.tag {
+    float:left;
+    position:absolute;
+    left:0px;
+    top:0px;
+
+   padding: 10px;
 }
 
 #navigation {
@@ -70,11 +83,11 @@ body {
         box-shadow:  -2px -2px 5px #111;
     }
         .navblock:hover .nav-accent{
-            background-color: #348;
+            background-color: #048;
         }
      
         #active {
-            background-color: #599;
+            background-color: #06c;
         }
 
     .nav-caption {
@@ -95,8 +108,8 @@ body {
     border-bottom: solid;
     border-width: 1px;
     border-color: #CCC;
-    height: 25pt;
-    background-color: #777;
+    height: 30px;
+    background-color: #555;
     width: 100%;
     box-shadow:  -2px -2px 5px #111;
     z-index: 1;
@@ -118,26 +131,33 @@ body {
 .post {
     #margin-top: 10px;
     margin-bottom: 20px;
-    border-top-left-radius: 10px;
-    background-color: #777;
-    box-shadow: -2px -2px 5px #010;
+    #border-top-left-radius: 10px;
+    #background-color: #777;
+    color:#aaa;
+
+    #box-shadow: -2px -2px 5px #010;
 }
 
 .post-header {
     border-bottom: solid;
-    border-color: #599;
-    border-top-left-radius: 10px;
-    background-color: #348;
-    padding: 5px;
-    padding-left: 10px;
-    font-size: larger;
+    #border-color: #06c;
+    border-width: 1px;
+    border-color: #0cf;
+    #border-top-left-radius: 10px;
+    #background-color: #048;
+    color:#ccc;
+    font-weight: 700;
+    font-size: 20pt;
+    padding: 0px 0px 0px 0px;
 }
 
 .post .content {
-    padding: 10px;
+    padding: 0px 10px 10px 10px;
+    text-shadow: 2px 2px 5px #222 ;
 }
 
 .post .footer {
-    background-color: #666;
-    padding-left: 10px;
+    #background-color: #666;
+    color:#666;
+    padding: 0px 0px 0px 10px;
 }
