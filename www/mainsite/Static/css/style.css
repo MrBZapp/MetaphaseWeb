@@ -65,7 +65,7 @@ body {
         }
 
     #navigation a:hover {
-        color: #EEE;
+        color: #EEF;
     }
 
 .navblock {
@@ -83,7 +83,7 @@ body {
         box-shadow:  -2px -2px 5px #111;
     }
         .navblock:hover .nav-accent{
-            background-color: #048;
+            background-color: #0cf;
         }
      
         #active {
