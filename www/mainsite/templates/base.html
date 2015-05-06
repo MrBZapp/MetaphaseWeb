@@ -14,9 +14,17 @@
 
 	<body>
 		<div id="layout_block">
-			{% block layout_header %} {% include 'layout_header.html' %} {% endblock %}
-			{% block layout_body %} {% include 'layout_body.html' %} {% endblock %}
-			{% block layout_footer %} {% include 'layout_footer.html' %} {% endblock %}
+			{% block layout_header %}
+                {% include 'layout_header.html' %}
+            {% endblock %}
+			<div id="layout_body">
+                {% block layout_body %}
+                    {% include 'posts.html' %}
+                {% endblock %}
+            </div>
+			{% block layout_footer %}
+                {% include 'layout_footer.html' %}
+            {% endblock %}
 		</div>
 	</body>
 </html>

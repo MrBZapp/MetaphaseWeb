@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block layout_body %}
+    {% from "macros/_formhelpers.html" import render_field %}
+<form method=post action="/log-in">
+  <dl>
+    {{ render_field(form.username) }}
+    {{ render_field(form.password) }}
+  </dl>
+  <p><input type=submit value='Log In'>
+</form>
+<form action="{{ url_for('register') }}">
+    <input type=submit value="register">
+</form>
+{% endblock %}

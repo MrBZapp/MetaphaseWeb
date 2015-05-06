@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block layout_body %}
+{% from "macros/_formhelpers.html" import render_field %}
+<form method=post enctype="multipart/form-data" action="/post">
+    <dl>
+        {{ render_field(form.title) }}
+        {{ render_field(form.headIMG) }}
+        {{ render_field(form.bodyHTML) }}
+        {{ render_field(form.textHTML) }}
+  </dl>
+  <p><input type=submit value='post'>
+</form>
+{% endblock %}
