@@ -8,6 +8,7 @@ from flask import Flask, \
     Markup
 
 from blogread import db as db
+from sqlalchemy import exc as sql_exception
 import blogread
 import formread
 import hashlib
@@ -27,7 +28,7 @@ def allowed_file(filename):
 app = Flask(__name__)
 app.config['POST_IMG_FOLDER'] = POST_IMG_FOLDER
 app.config['POST_TMP_FOLDER'] = POST_TMP_FOLDER
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://admin:admin@192.168.1.126/blogdata'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:m3tadmin@192.168.1.126/blogdata'
 db.init_app(app)
 
 # set the secret key.  keep this really secret:
@@ -35,7 +36,12 @@ app.secret_key = '512cgv&P<T$$(){KMhb637rf6tn{_ube532v55@15-sdfgnhyr76'
 
 @app.route('/')
 def index():
-    entries = blogread.entry.query.all()
+    try:
+        entries = blogread.entry.query.all()
+    except sql_exception.OperationalError:
+        entries = [blogread.entry("Server", "Error", "There was an error fetching data from the server,\
+            we apologize for the inconvenience. <br> Please contact the system administrator if the problem persists.")]
+
     if entries is not None:
         for entry in entries:
             entry.content = Markup(entry.content)
@@ -82,6 +88,12 @@ def log_in():
             flash("username or password is incorrect")
 
     return render_template('log-in.html', form=form, bootstrap=True)
+
+@app.route('/log-out')
+def log_out():
+    session.pop('user')
+    flash('logged out!')
+    return redirect('/')
 
 
 
