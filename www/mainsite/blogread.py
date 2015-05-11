@@ -17,11 +17,12 @@ class entry(db.Model):
     content = db.Column(types.Text(), nullable=True)
     comment_count = db.Column(Integer)
 
-    def __init__(self, author, title, content):
+    def __init__(self, author, title, content, imgpath):
         self.datetime = dt.now()
         self.author = author
         self.title = title
         self.content = content
+        self.headIMG = imgpath
 
     def __repr__(self):
         return "<entry(date='%s', author='%s', title='%s')>" % (self.datetime, self.author, self.title)

@@ -28,7 +28,7 @@ def allowed_file(filename):
 app = Flask(__name__)
 app.config['POST_IMG_FOLDER'] = POST_IMG_FOLDER
 app.config['POST_TMP_FOLDER'] = POST_TMP_FOLDER
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:m3tadmin@192.168.1.126/blogdata'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:m3tadmin@localhost/blogdata'
 db.init_app(app)
 
 # set the secret key.  keep this really secret:
@@ -36,12 +36,13 @@ app.secret_key = '512cgv&P<T$$(){KMhb637rf6tn{_ube532v55@15-sdfgnhyr76'
 
 @app.route('/')
 def index():
+    entries = [blogread.entry("Server", "Error", "There was an error fetching data from the server,\
+            we apologize for the inconvenience. <br> Please contact the system administrator if the problem persists.", "")]
     try:
         entries = blogread.entry.query.all()
     except sql_exception.OperationalError:
-        entries = [blogread.entry("Server", "Error", "There was an error fetching data from the server,\
-            we apologize for the inconvenience. <br> Please contact the system administrator if the problem persists.")]
-
+	pass
+        
     if entries is not None:
         for entry in entries:
             entry.content = Markup(entry.content)
@@ -111,24 +112,26 @@ def post():
         form = formread.BlogForm(request.form)
         if request.method == 'POST':
             # import the html text
-            if 'bodyHTML' in request.files:
+            if 'bodyHTML'not in request.files or form.textHTML.data == "":
+                content = form.textHTML.data
+            else:
                 bodyHTML = request.files['bodyHTML']
                 content = bodyHTML.read()
-
-            # add the entry to the database
-            entry = blogread.entry(author=session['user']['rname'], title=form.title.data, content=content)
-            db.session.add(entry)
-            db.session.commit()
-
-            # get post ID number
-
-            if 'file' in request.files:
+            
+            # get header image
+            if 'headIMG' in request.files:
                 headIMG = request.files['headIMG']
                 if headIMG and allowed_file(headIMG.filename):
                     filename = werkzeug.secure_filename(headIMG.filename)
-                    inFile.save(os.path.join(POST_FOLDER, filename))
+                    headIMG.save(os.path.join(POST_IMG_FOLDER, filename))
                     flash('file submitted')
-
+            else:
+                filename = ""           
+            # add the entry to the database
+            entry = blogread.entry(author=session['user']['rname'], title=form.title.data, content=content, imgpath=filename)
+            db.session.add(entry)
+            db.session.commit()
+            return redirect('/')
 
         base = app.jinja_env.get_template('makepost.html')
         return render_template(base, title="entering post", form=form, bootstrap=True)
@@ -142,7 +145,8 @@ def comment():
     return request.args.get('comments')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
+
 
 
 
