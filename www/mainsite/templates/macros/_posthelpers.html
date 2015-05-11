@@ -1,8 +1,8 @@
-{% macro render_post(data) %}
+{%  macro render_post(data) %}
 <div class="post">
     <div class="post-header" id="{{data.title}}">{{data.title}}</div>
-    {% if data.headIMG is not none %}
-	{{data.headIMG}}
+    {% if data.headIMG != "" and data.headIMG is not none%}
+	    <img src="{{ url_for('static', filename='posts/img/' + data.headIMG) }}">
     {% endif %}
     <div class="content">
         {{data.content}}
@@ -10,8 +10,7 @@
     <div class="footer">
         <p>
             Posted by {{data.author}} at {{data.datetime}}. &nbsp;
-	{{data.headIMG}}
-            <a class="comment_link" href="{{ url_for('comment') }}?comments={{ data.id }}"> Comments({{ data.comment_count }})</a>
+	        <a class="comment_link" href="{{ url_for('comment') }}?comments={{ data.id }}"> Comments({{ data.comment_count }})</a>
         </p>
     </div>
 </div>

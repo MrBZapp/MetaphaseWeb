@@ -15,20 +15,25 @@ import hashlib
 import os
 import werkzeug
 
+# Global definitions
+GLOBAL_ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
+# Static Subfolder names
+POST_IMG_FOLDER = 'static/posts/img'
+POST_TMP_FOLDER = 'static/posts/tmp'
 
-POST_IMG_FOLDER = 'C:\Users\BroZapp\mainsite\git\www\mainsite\posts\img'
-POST_TMP_FOLDER = 'C:\Users\BroZapp\mainsite\git\www\mainsite\posts\tmp'
-
-ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+# Config dependent paths
+# DATABASE_URI = 'mysql+pymysql://root:m3tadmin@localhost/blogdata' #Production
+DATABASE_URI = 'mysql+pymysql://admin:admin@192.168.1.126/blogdata' #Dev
 
 def allowed_file(filename):
-    return '.' in filename and filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
-
+    return '.' in filename and filename.rsplit('.', 1)[1] in GLOBAL_ALLOWED_EXTENSIONS
+# Define the app so we can assign some variables
 app = Flask(__name__)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URI
 app.config['POST_IMG_FOLDER'] = POST_IMG_FOLDER
 app.config['POST_TMP_FOLDER'] = POST_TMP_FOLDER
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:m3tadmin@localhost/blogdata'
 db.init_app(app)
 
 # set the secret key.  keep this really secret:
@@ -36,12 +41,13 @@ app.secret_key = '512cgv&P<T$$(){KMhb637rf6tn{_ube532v55@15-sdfgnhyr76'
 
 @app.route('/')
 def index():
-    entries = [blogread.entry("Server", "Error", "There was an error fetching data from the server,\
-            we apologize for the inconvenience. <br> Please contact the system administrator if the problem persists.", "")]
+    entries = [blogread.entry("General Error", "Whoops", "If you're seeing this, it's bad.  Write to this guy, he'll figure it out: sysadmin@metaphase.com", "")]
     try:
         entries = blogread.entry.query.all()
     except sql_exception.OperationalError:
-	pass
+        entries = [blogread.entry("Server", "Whoops", "The server forgot to provide any data or something,\
+            we're not positive yet. <br> Give it a shot again but please cool it contact the system administrator if the problem persists.", "")]
+        pass
         
     if entries is not None:
         for entry in entries:
@@ -97,7 +103,6 @@ def log_out():
     return redirect('/')
 
 
-
 @app.route('/post', methods=['GET', 'POST'])
 def post():
     # make sure user is logged in
@@ -110,28 +115,42 @@ def post():
     # if the user is trying to post, make sure they have the credentials.
     if user['admin'] == 1:
         form = formread.BlogForm(request.form)
+
+        # if we're submitting the form as opposed to requesting it do these things.
         if request.method == 'POST':
-            # import the html text
-            if 'bodyHTML'not in request.files or form.textHTML.data == "":
+
+            # import the form content
+            if 'bodyHTML' not in request.files or form.textHTML.data != "":
                 content = form.textHTML.data
+
+            # if the form is empty, upload the file, the effect is identical.
             else:
                 bodyHTML = request.files['bodyHTML']
                 content = bodyHTML.read()
-            
+
+            # prepare to import the uploaded image file
+            filename = None
+
             # get header image
             if 'headIMG' in request.files:
                 headIMG = request.files['headIMG']
+
+                # if the file is legit replace the filename with it
                 if headIMG and allowed_file(headIMG.filename):
                     filename = werkzeug.secure_filename(headIMG.filename)
                     headIMG.save(os.path.join(POST_IMG_FOLDER, filename))
                     flash('file submitted')
-            else:
-                filename = ""           
+                else:
+                    flash('If a file was submitted it was of a non-allowed format.')
+
             # add the entry to the database
             entry = blogread.entry(author=session['user']['rname'], title=form.title.data, content=content, imgpath=filename)
-            db.session.add(entry)
-            db.session.commit()
-            return redirect('/')
+            try:
+                db.session.add(entry)
+                db.session.commit()
+                return redirect('/')
+            except sql_exception.OperationalError:
+                flash('Post was not able to be submitted due to a server error.  Maybe try again?')
 
         base = app.jinja_env.get_template('makepost.html')
         return render_template(base, title="entering post", form=form, bootstrap=True)
