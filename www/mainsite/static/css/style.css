@@ -14,12 +14,14 @@ body {
 
 #layout_body {
     //position: relative;
+    float: left;
     background-color: #202020;
     border-left: solid;
     border-width: 1px;
     width: 75%;
     border-color: #06c;
-    padding: 10pt;  
+    padding: 10pt;
+    margin-top: 75px;
     margin-left: 121px;
     box-shadow:  -2px -2px 5px #111;
     z-index: -1;
@@ -31,10 +33,11 @@ body {
 }
 
 #titlebar {
-    background-repeat: no-repeat;
+    position: fixed;
+    background-color: rgba(22, 22, 22, 0.75);
     width: 100%;
     min-height: 45px;
-    position: relative;
+    z-index: 2;
 }
 
 
@@ -109,11 +112,13 @@ body {
     border-width: 1px;
     border-color: #CCC;
     padding-left: 121px;
-    height: 30px;
+    min-height: 30px;
     background-color: #555;
     width: 100%;
     box-shadow:  -2px -2px 5px #111;
     z-index: 1;
+    position: fixed;
+    top: 45px;
 }
 
 #leftpad{
