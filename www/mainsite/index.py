@@ -19,12 +19,12 @@ import werkzeug
 GLOBAL_ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 # Static Subfolder names
-POST_IMG_FOLDER = 'static/posts/img'
-POST_TMP_FOLDER = 'static/posts/tmp'
+POST_IMG_FOLDER = 'static/posts/img/'
+POST_TMP_FOLDER = '/static/posts/tmp'
 
 # Config dependent paths
-# DATABASE_URI = 'mysql+pymysql://root:m3tadmin@localhost/blogdata' #Production
-DATABASE_URI = 'mysql+pymysql://admin:admin@192.168.1.126/blogdata' #Dev
+DATABASE_URI = 'mysql+pymysql://root:m3tadmin@localhost/blogdata' #Production
+#DATABASE_URI = 'mysql+pymysql://admin:admin@192.168.1.126/blogdata' #Dev
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1] in GLOBAL_ALLOWED_EXTENSIONS
@@ -138,7 +138,7 @@ def post():
                 # if the file is legit replace the filename with it
                 if headIMG and allowed_file(headIMG.filename):
                     filename = werkzeug.secure_filename(headIMG.filename)
-                    headIMG.save(os.path.join(POST_IMG_FOLDER, filename))
+                    headIMG.save(os.path.join(app.config['POST_IMG_FOLDER'], filename))
                     flash('file submitted')
                 else:
                     flash('If a file was submitted it was of a non-allowed format.')
