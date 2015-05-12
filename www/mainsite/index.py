@@ -159,6 +159,53 @@ def post():
         return redirect('log-in')
 
 
+@app.route('/edit-post', methods=['GET', 'POST'])
+def edit_post():
+    # make sure user is logged in
+    if 'user' not in session:
+        flash('please log in to post')
+        return redirect('/log-in')
+
+    user = session['user']
+
+    if user['admin'] == 1:
+        # pull the entry from the database
+        try:
+            entry = blogread.entry.query.filter_by(id=request.args.get('entry')).first()
+        except sql_exception.OperationalError:
+            entry = blogread.entry("General Error", "Whoops", "The server had a senior moment, or something like that.\
+              Give it a minute and try again, and then contact the administrator", "")
+
+        # if the entry doesn't exist, tell the user.
+        if entry is None:
+            flash("There are no posts with ID # " + request.args.get('entry') + " to be edited.")
+            return redirect('/')
+
+        form = formread.BlogForm(request.form)
+
+        # update the relevant parts of the post TODO: add the ability to update the image as well
+        if request.method == 'POST':
+            if form.textHTML.data != "":
+                entry.content = form.textHTML.data
+
+            if form.title.data != "":
+                entry.title = form.title.data
+
+            db.session.commit()
+            return redirect('/')
+
+        else:
+            # pre-populate the form:
+            form = formread.BlogForm(title=entry.title, textHTML=entry.content)
+
+        base = app.jinja_env.get_template('edit-post.html')
+        return render_template(base, title="editing post", form=form, id=request.args.get('entry'), bootstrap=True)
+
+    else:
+        flash('You must be logged-in as an administrator to do that.')
+        return redirect('log_in')
+
+
 @app.route('/comment', methods=['GET', 'POST'])
 def comment():
     return request.args.get('comments')

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block layout_body %}
+{% from "macros/_formhelpers.html" import render_field %}
+<form method=post enctype="multipart/form-data" action="{{ url_for('edit_post') }}?entry={{ id }}">
+    <dl>
+        {{ render_field(form.title) }}
+        {{ render_field(form.headIMG) }}
+        {{ render_field(form.textHTML) }}
+  </dl>
+  <p><input type=submit value='post'>
+</form>
+{% endblock %}

@@ -3,7 +3,7 @@
 		<title>	{{title}} </title>
 		{% if bootstrap == True:%}
 			<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.min.css')}}"/>
-			<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap-theme.min.css/')}}"/>
+			<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap-theme.min.css')}}"/>
 		{% endif %}
 		{% block pagestyle %}
 			<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}"/>
