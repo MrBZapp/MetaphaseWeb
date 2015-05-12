@@ -152,6 +152,13 @@ body {
     padding: 0px 0px 0px 0px;
 }
 
+.post .headline-image{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 400px;
+    display:block;
+}
+
 .post .content {
     padding: 10px 10px 10px 10px;
     text-shadow: 2px 2px 5px #222 ;

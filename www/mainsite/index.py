@@ -23,8 +23,8 @@ POST_IMG_FOLDER = 'static/posts/img/'
 POST_TMP_FOLDER = '/static/posts/tmp'
 
 # Config dependent paths
-DATABASE_URI = 'mysql+pymysql://root:m3tadmin@localhost/blogdata' #Production
-#DATABASE_URI = 'mysql+pymysql://admin:admin@192.168.1.126/blogdata' #Dev
+#DATABASE_URI = 'mysql+pymysql://root:m3tadmin@localhost/blogdata' #Production
+DATABASE_URI = 'mysql+pymysql://admin:admin@192.168.1.126/blogdata' #Dev
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1] in GLOBAL_ALLOWED_EXTENSIONS

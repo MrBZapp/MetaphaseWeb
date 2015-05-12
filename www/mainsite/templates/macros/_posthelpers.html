@@ -2,7 +2,7 @@
 <div class="post">
     <div class="post-header" id="{{data.title}}">{{data.title}}</div>
     {% if data.headIMG != "" and data.headIMG is not none%}
-	    <img src="{{ url_for('static', filename='posts/img/' + data.headIMG) }}">
+	    <img class="headline-image" src="{{ url_for('static', filename='posts/img/' + data.headIMG) }}">
     {% endif %}
     <div class="content">
         {{data.content}}
