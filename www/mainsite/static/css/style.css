@@ -1,0 +1,164 @@
+body {
+    background: linear-gradient(135deg, #222, #444) fixed;
+    color: #ccc;
+    border-color: #777;
+    font: monospace;
+    min-width: 610px;
+}
+
+#layout_block {
+#    padding-top: 5px;
+    min-width: 600px;
+}
+
+
+#layout_body {
+    //position: relative;
+    background-color: #202020;
+    border-left: solid;
+    border-width: 1px;
+    width: 75%;
+    border-color: #06c;
+    padding: 10pt;  
+    margin-left: 121px;
+    box-shadow:  -2px -2px 5px #111;
+    z-index: -1;
+}
+
+#layout_footer{
+    margin-left:  120px;
+    width: 75%;
+}
+
+#titlebar {
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 45px;
+    position: relative;
+}
+
+
+#logo {
+   position: relative;
+   padding: 10px;
+}
+
+.tag {
+    float:left;
+    position:absolute;
+    left:0px;
+    top:0px;
+
+   padding: 10px;
+}
+
+#navigation {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    text-align: left;
+    font-size: 0pt;
+}
+    #navigation a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+    #navigation a:hover {
+        color: #EEF;
+    }
+
+.navblock {
+    display: inline-block;
+    border: 0pt;
+    font-size: 12pt
+}
+
+    .nav-accent {
+        float: left;
+        min-width: 5px;
+        background-color: #CCC;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        box-shadow:  -2px -2px 5px #111;
+    }
+        .navblock:hover .nav-accent{
+            background-color: #0cf;
+        }
+     
+        #active {
+            background-color: #06c;
+        }
+
+    .nav-caption {
+        float: right;
+        padding-left: 10pt;
+        padding-right: 15pt;
+        text-shadow:  -2px -2px 5px #111;
+    }
+
+    .nav-bottom{
+        clear: right;
+        height: 1px;
+        background-color: #FFF;
+    }
+
+#submenu {
+    border-top: solid;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: #CCC;
+    padding-left: 121px;
+    height: 30px;
+    background-color: #555;
+    width: 100%;
+    box-shadow:  -2px -2px 5px #111;
+    z-index: 1;
+}
+
+#leftpad{
+    width: 120px;
+    min-width: 120px
+}
+
+#rightpad{
+    overflow: hidden;
+}
+.clearboth {
+    clear: both;
+}
+
+
+.post {
+    #margin-top: 10px;
+    margin-bottom: 20px;
+    #border-top-left-radius: 10px;
+    #background-color: #777;
+    color:#aaa;
+
+    #box-shadow: -2px -2px 5px #010;
+}
+
+.post-header {
+    border-bottom: solid;
+    #border-color: #06c;
+    border-width: 1px;
+    border-color: #0cf;
+    #border-top-left-radius: 10px;
+    #background-color: #048;
+    color:#ccc;
+    font-weight: 700;
+    font-size: 20pt;
+    padding: 0px 0px 0px 0px;
+}
+
+.post .content {
+    padding: 10px 10px 10px 10px;
+    text-shadow: 2px 2px 5px #222 ;
+}
+
+.post .footer {
+    #background-color: #666;
+    color:#666;
+    padding: 0px 0px 0px 10px;
+}
