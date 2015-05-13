@@ -19,7 +19,7 @@ body {
     border-left: solid;
     border-width: 1px;
     width: 75%;
-    width-min: 620px;
+    min-width: 620px;
     border-color: #06c;
     padding: 10px;
     margin-top: 75px;
