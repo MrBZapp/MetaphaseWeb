@@ -19,8 +19,9 @@ body {
     border-left: solid;
     border-width: 1px;
     width: 75%;
+    width-min: 620px;
     border-color: #06c;
-    padding: 10pt;
+    padding: 10px;
     margin-top: 75px;
     margin-left: 121px;
     box-shadow:  -2px -2px 5px #111;
@@ -95,7 +96,7 @@ body {
 
     .nav-caption {
         float: right;
-        padding-left: 10pt;
+        padding-left: 10px;
         padding-right: 15pt;
         text-shadow:  -2px -2px 5px #111;
     }
@@ -160,7 +161,9 @@ body {
 .post .headline-image{
     margin-left: auto;
     margin-right: auto;
-    max-width: 400px;
+    max-height: 400px;
+    max-width: 600px;
+    padding: 10px;
     display:block;
 }
 
