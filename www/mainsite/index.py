@@ -183,15 +183,32 @@ def edit_post():
 
         form = formread.BlogForm(request.form)
 
-        # update the relevant parts of the post TODO: add the ability to update the image as well
+        # update the relevant parts of the post
         if request.method == 'POST':
             if form.textHTML.data != "":
                 entry.content = form.textHTML.data
+                flash("content updated")
 
             if form.title.data != "":
                 entry.title = form.title.data
+                flash("title updated")
+
+            # get header image
+            if 'headIMG' in request.files:
+                headIMG = request.files['headIMG']
+
+                # if a file is provided and it's legit, replace it
+                if headIMG != "" and allowed_file(headIMG.filename):
+                    # write the new file
+                    filename = werkzeug.secure_filename(headIMG.filename)
+                    headIMG.save(os.path.join(app.config['POST_IMG_FOLDER'], filename))
+
+                    # update the entry
+                    entry.headIMG = filename
+                    flash("head image updated")
 
             db.session.commit()
+
             return redirect('/')
 
         else:
