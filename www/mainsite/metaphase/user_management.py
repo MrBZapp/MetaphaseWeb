@@ -1,8 +1,7 @@
 __author__ = 'BroZapp'
 import hashlib
 from flask import flash, redirect, render_template, request, session
-from metaphase import app, formread, blogread
-from blogread import db as db
+from metaphase import app, db, formread, blogread
 
 
 def verify_user_log_in():

@@ -1,11 +1,9 @@
-from flask_sqlalchemy import SQLAlchemy
+
 from sqlalchemy import Integer, String, types
 import hashlib
 from datetime import datetime as dt
 
-from metaphase import app
-
-db = SQLAlchemy(app)
+from metaphase import app, db
 
 class Entry(db.Model):
 

@@ -2,8 +2,12 @@ __author__ = 'Matt Zapp'
 
 from flask import Flask
 
+from flask_sqlalchemy import SQLAlchemy
+
 # Main app definition
 app = Flask(__name__)
+db = SQLAlchemy(app)
+db.create_all()
 
 # Global definitions
 GLOBAL_ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
@@ -13,8 +17,8 @@ POST_IMG_FOLDER = 'static/posts/img/'
 POST_TMP_FOLDER = '/static/posts/tmp'
 
 # Config dependent paths
-#DATABASE_URI = 'mysql+pymysql://root:m3tadmin@localhost/blogdata' #Production
-DATABASE_URI = 'mysql+pymysql://admin:admin@192.168.1.126/blogdata' #Dev
+DATABASE_URI = 'mysql+pymysql://root:m3tadmin@localhost/blogdata' #Production
+#DATABASE_URI = 'mysql+pymysql://admin:admin@192.168.1.126/blogdata' #Dev
 
 
 app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URI

@@ -1,9 +1,8 @@
 __author__ = 'BroZapp'
 
 from flask import flash, redirect, render_template, request, session
-from metaphase import app, formread, blogread
+from metaphase import app, db, formread, blogread
 from _file_helpers import allowed_file
-from blogread import db as db
 from sqlalchemy import exc as sql_exception
 from metaphase.user_management import verify_user_log_in, verify_user_admin
 import werkzeug
