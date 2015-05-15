@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block layout_body %}
+{% from "macros/_formhelpers.html" import render_field %}
+{% from "macros/_posthelpers.html" import render_post %}
+{% from "macros/_commenthelpers.html" import render_comment %}
+{{ render_post(post) }}
+
+<form method=post enctype="multipart/form-data" action="{{ url_for('comment') }}?post_id={{ post_id }}">
+    <dl>
+        {{ render_field(form.text) }}
+  </dl>
+  <p><input type=submit value='post'>
+</form>
+
+
+{% endblock %}

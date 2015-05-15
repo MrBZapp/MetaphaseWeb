@@ -1,0 +1,22 @@
+{%  macro render_post(data) %}
+<div class="post">
+    <div class="post-header" id="{{data.title}}">{{data.title}}</div>
+    {% if data.headIMG != "" and data.headIMG is not none%}
+	    <img class="headline-image" src="{{ url_for('static', filename='posts/img/' + data.headIMG) }}">
+    {% endif %}
+    <div class="content">
+        {{data.content}}
+    </div>
+    <div class="footer">
+        <p>
+            Posted by {{data.author}} at {{data.datetime}}. &nbsp;
+	        <a class="comment_link" href="{{ url_for('comment') }}?post_id={{ data.id }}"> Comments({{ data.comment_count }})</a>
+            {% if session.user is not undefined %}
+                {% if session.user['admin'] == 1 %}
+                    <a class="admin_link" href="{{ url_for('edit_post') }}?entry={{ data.id }}"> edit</a>
+                {% endif %}
+            {% endif %}
+        </p>
+    </div>
+</div>
+{% endmacro %}
