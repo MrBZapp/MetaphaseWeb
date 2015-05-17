@@ -1,30 +1,29 @@
 __author__ = 'Matt Zapp'
-
+import flask
 from flask import Flask
 
 from flask_sqlalchemy import SQLAlchemy
 
-# Main app definition
-app = Flask(__name__)
-db = SQLAlchemy(app)
-db.create_all()
 
 # Global definitions
 GLOBAL_ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 # Static Subfolder names
-POST_IMG_FOLDER = 'static/posts/img/'
+POST_IMG_FOLDER = '/static/posts/img/'
 POST_TMP_FOLDER = '/static/posts/tmp'
 
 # Config dependent paths
-DATABASE_URI = 'mysql+pymysql://root:m3tadmin@localhost/blogdata' #Production
-#DATABASE_URI = 'mysql+pymysql://admin:admin@192.168.1.126/blogdata' #Dev
+#DATABASE_URI = 'mysql+pymysql://root:m3tadmin@localhost/blogdata' #Production
+DATABASE_URI = 'mysql+pymysql://admin:admin@192.168.1.126/blogdata' #Dev
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URI
-app.config['POST_IMG_FOLDER'] = POST_IMG_FOLDER
+app = Flask(__name__)
+db = SQLAlchemy(app)
+db.create_all()
+
 app.config['POST_TMP_FOLDER'] = POST_TMP_FOLDER
-
+app.config['POST_IMG_FOLDER'] = POST_IMG_FOLDER
+app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URI
 # set the secret key.  keep this really secret:
 app.secret_key = '512cgv&P<T$$(){KMhb637rf6tn{_ube532v55@15-sdfgnhyr76'
 

@@ -1,9 +1,9 @@
-
+from metaphase import db
 from sqlalchemy import Integer, String, types
 import hashlib
 from datetime import datetime as dt
 
-from metaphase import app, db
+from metaphase import app
 
 class Entry(db.Model):
 

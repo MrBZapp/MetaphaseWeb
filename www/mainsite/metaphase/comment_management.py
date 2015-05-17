@@ -1,6 +1,6 @@
 __author__ = 'BroZapp'
 
-from flask import flash, request, session, Markup
+from flask import flash, request, redirect, session, Markup
 from metaphase import app, db, blogread, formread
 
 @app.route('/comment', methods=['GET', 'POST'])
@@ -11,12 +11,12 @@ def comment():
     # make sure user is logged in
     if 'user' not in session:
         flash('please log in to comment')
-        return app.redirect('/log-in')
+        return redirect('/log-in')
     user = session['user']
     user = blogread.User.query.filter_by(username=user['username']).first()
     form = formread.CommentForm()
     content = form.comment_text.data
-    if app.request.method == 'POST':
+    if request.method == 'POST':
         new_comment = blogread.Comment(post_id, content, user.id)
         db.session.add(new_comment)
         db.session.commit()
