@@ -1,7 +1,7 @@
 __author__ = 'BroZapp'
 import hashlib
 from flask import flash, redirect, render_template, request, session
-from metaphase import app, db, formread, blogread
+from metaphase import app, db, formread, blogDB
 
 
 def verify_user_log_in():
@@ -21,7 +21,7 @@ def verify_user_admin():
 def register():
     form = formread.RegistrationForm(request.form)
     if request.method == 'POST' and form.validate():
-        user = blogread.User(form.username.data, form.realname.data, form.email.data, form.password.data)
+        user = blogDB.User(form.username.data, form.realname.data, form.email.data, form.password.data)
         session['user'] = user.username
         db.session.add(user)
         db.session.commit()
@@ -34,7 +34,7 @@ def register():
 def log_in():
     form = formread.LogInForm(request.form)
     if request.method == 'POST':
-        new_user = blogread.User.query.filter_by(username=str(form.username.data)).first()
+        new_user = blogDB.User.query.filter_by(username=str(form.username.data)).first()
 
         if new_user is None:
             flash("no user by that name")
@@ -55,6 +55,7 @@ def log_in():
             flash("username or password is incorrect")
 
     return render_template('log-in.html', form=form, bootstrap=True)
+
 
 @app.route('/log-out')
 def log_out():

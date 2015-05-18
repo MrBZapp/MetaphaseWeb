@@ -1,29 +1,21 @@
 __author__ = 'BroZapp'
 
-from flask import flash, request, redirect, session, Markup
-from metaphase import app, db, blogread, formread
+from flask import request, session, Markup, render_template
+from metaphase import app, db, blogDB, user_management, formread
 
 @app.route('/comment', methods=['GET', 'POST'])
 def comment():
-
-    post_id = request.args.get('post_id')
-
-    # make sure user is logged in
-    if 'user' not in session:
-        flash('please log in to comment')
-        return redirect('/log-in')
-    user = session['user']
-    user = blogread.User.query.filter_by(username=user['username']).first()
-    form = formread.CommentForm()
-    content = form.comment_text.data
+    user_management.verify_user_log_in()
+    user = blogDB.User.query.filter_by(username=session['user']['username']).first()
+    parent = blogDB.Post.query.filter_by(id=request.args.get('post_id')).first()
+    form = formread.CommentForm(request.form)
     if request.method == 'POST':
-        new_comment = blogread.Comment(post_id, content, user.id)
+        new_comment = blogDB.Post(user.realname, form.comment_text.data, parent=parent)
         db.session.add(new_comment)
         db.session.commit()
 
-    commented_post = blogread.Entry.query.filter_by(id=post_id).first()
+    commented_post = blogDB.Post.query.filter_by(id=parent.id).first()
     commented_post.content = Markup(commented_post.content)
-    comments = blogread.Comment.query.filter_by(post_id=post_id).all()
+    comments = blogDB.Post.query.filter_by(parent_id=parent.id).all()
 
-    return app.render_template('comment.html', post_id=post_id, commented_post=commented_post,
-                               comments=comments, form=form, bootstrap=True)
+    return render_template('comment.html', post=parent, comments=comments, form=form, bootstrap=True)

@@ -5,12 +5,15 @@
 {% from "macros/_commenthelpers.html" import render_comment %}
 {{ render_post(post) }}
 
-<form method=post enctype="multipart/form-data" action="{{ url_for('comment') }}?post_id={{ post_id }}">
+<form method=post enctype="multipart/form-data" action="{{ url_for('comment') }}?post_id={{ post.id }}">
     <dl>
-        {{ render_field(form.text) }}
+        {{ render_field(form.comment_text) }}
   </dl>
   <p><input type=submit value='post'>
 </form>
 
+{% for comment in comments: %}
+    {{ render_comment(comment) }}
+{% endfor %}
 
 {% endblock %}

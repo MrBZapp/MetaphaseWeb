@@ -1,7 +1,7 @@
 __author__ = 'BroZapp'
 
 from flask import flash, redirect, render_template, request, session
-from metaphase import app, db, formread, blogread
+from metaphase import app, db, formread, blogDB
 from _file_helpers import allowed_file
 from sqlalchemy import exc as sql_exception
 from metaphase.user_management import verify_user_log_in, verify_user_admin
@@ -45,7 +45,7 @@ def post():
                     flash('If a file was submitted it was of a non-allowed format.')
 
             # add the entry to the database
-            entry = blogread.Entry(author=session['user']['realname'], title=form.title.data, content=content, imgpath=filename)
+            entry = blogDB.Post(author=session['user']['realname'], title=form.title.data, content=content, img_path=filename)
             try:
                 db.session.add(entry)
                 db.session.commit()
@@ -67,9 +67,9 @@ def edit_post():
     if verify_user_admin():
         # pull the entry from the database
         try:
-            entry = blogread.Entry.query.filter_by(id=request.args.get('entry')).first()
+            entry = blogDB.Post.query.filter_by(id=request.args.get('entry')).first()
         except sql_exception.OperationalError:
-            entry = blogread.Entry("General Error", "Whoops", "The server had a senior moment, or something like that.\
+            entry = blogDB.Post("General Error", "Whoops", "The server had a senior moment, or something like that.\
               Give it a minute and try again, and then contact the administrator", "")
 
         # if the entry doesn't exist, tell the user.

@@ -2,15 +2,17 @@ __author__ = 'BroZapp'
 
 from flask import render_template, Markup
 from metaphase import app
-import metaphase.blogread as blogread
+import metaphase.blogDB as blogread
 from sqlalchemy import exc as sql_exception
 
 @app.route('/')
 def index():
     try:
-        entries = blogread.Entry.query.all()
+        # get all the 'orphan' entries
+        entries = blogread.Post.query.filter_by(parent_id=None).all()
+
     except sql_exception.OperationalError:
-        entries = [blogread.Entry("Server", "Whoops", "The server forgot to provide any data or something,\
+        entries = [blogread.Post("Server", "Whoops", "The server forgot to provide any data or something,\
             we're not positive yet. <br> Give it a shot again but please cool it contact the system administrator \
             if the problem persists.", "")]
 
