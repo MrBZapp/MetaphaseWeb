@@ -11,7 +11,7 @@ POST_IMG_FOLDER = '/static/posts/img/'
 POST_TMP_FOLDER = '/static/posts/tmp'
 
 # Config dependent paths
-#DATABASE_URI = 'mysql+pymysql://root:m3tadmin@localhost/blogdata' #Production
+#DATABASE_URI = 'mysql+pymysql://web-server:m3tadmin@localhost/blogdata' #Production
 DATABASE_URI = 'mysql+pymysql://admin:admin@192.168.1.126/blogdata' #Dev
 
 # Create the app and blank database

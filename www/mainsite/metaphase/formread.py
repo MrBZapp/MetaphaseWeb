@@ -4,7 +4,7 @@ from wtforms import Form, BooleanField, StringField, PasswordField, validators, 
 
 class RegistrationForm(Form):
     username = StringField('Username', [validators.length(min=4, max=25)])
-    realname = StringField('Author Name', [validators.length(min=1, max=25)])
+    real_name = StringField('Author Name', [validators.length(min=1, max=25)])
     email = StringField('Email Address', [validators.length(min=6, max=35)])
     password = PasswordField('New Password', [validators.DataRequired(),
                                               validators.EqualTo('confirm', message='Passwords must match')])

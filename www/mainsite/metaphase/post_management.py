@@ -30,7 +30,7 @@ def post():
                 content = bodyHTML.read()
 
             # prepare to import the uploaded image file
-            filename = None
+            file_name = None
 
             # get header image
             if 'headIMG' in request.files:
@@ -38,14 +38,14 @@ def post():
 
                 # if the file is legit replace the filename with it
                 if headIMG and allowed_file(headIMG.filename):
-                    filename = werkzeug.secure_filename(headIMG.filename)
-                    headIMG.save(os.path.join(app.root_path, app.config['POST_IMG_FOLDER'], filename))
-                    flash('file submitted')
+                    file_name = werkzeug.secure_filename(headIMG.filename)
+                    headIMG.save(os.path.join(app.root_path, app.config['POST_IMG_FOLDER'], file_name))
+                    flash('file submitted. ')
                 else:
                     flash('If a file was submitted it was of a non-allowed format.')
-
+            user = blogDB.User.query.filter_by(username=session['user']['username']).first()
             # add the entry to the database
-            entry = blogDB.Post(author=session['user']['realname'], title=form.title.data, content=content, img_path=filename)
+            entry = blogDB.Post(user=user, title=form.title.data, content=content)
             try:
                 db.session.add(entry)
                 db.session.commit()
@@ -99,7 +99,7 @@ def edit_post():
                     headIMG.save(os.path.join(app.root_path, app.config['POST_IMG_FOLDER'], filename))
 
                     # update the entry
-                    entry.headIMG = filename
+                    entry.head_img = filename
                     flash("head image updated")
 
             db.session.commit()
