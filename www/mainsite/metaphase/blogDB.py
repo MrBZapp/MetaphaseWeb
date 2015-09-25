@@ -1,4 +1,3 @@
-from _ast import In
 from metaphase import db
 from sqlalchemy import Integer, String, types
 import hashlib

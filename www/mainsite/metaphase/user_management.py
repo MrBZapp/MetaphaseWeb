@@ -1,14 +1,15 @@
 __author__ = 'BroZapp'
 import hashlib
 from flask import flash, redirect, render_template, request, session
+from werkzeug.routing import RequestRedirect
 from metaphase import app, db, formread, blogDB
 
 
 def verify_user_log_in():
     # make sure user is logged in
     if 'user' not in session:
-        flash('please log in to post')
-        return redirect('/log-in')
+        flash('please log in to do that.')
+        raise RequestRedirect('log-in')
 
 
 def verify_user_admin():
@@ -28,7 +29,10 @@ def load_user(new_user):
 
 
 def session_user():
-    return blogDB.User.query.filter_by(username=session['user']['username']).first()
+    if 'user' in session.keys():
+        return blogDB.User.query.filter_by(username=session['user']['username']).first()
+    else:
+        return False
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():

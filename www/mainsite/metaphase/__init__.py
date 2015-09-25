@@ -12,7 +12,7 @@ POST_TMP_FOLDER = '/static/posts/tmp'
 
 # Config dependent paths
 DATABASE_URI = 'mysql+pymysql://web-server:m3tadmin@localhost/blogdata' #Production
-#DATABASE_URI = 'mysql+pymysql://admin:admin@192.168.1.126/blogdata' #Dev
+#DATABASE_URI = 'mysql+pymysql://admin:admin@127.0.0.1:63306/blogdata' #Dev
 
 # Create the app and blank database
 app = Flask(__name__)
@@ -33,4 +33,4 @@ db.create_all()
 import metaphase.post_management
 import metaphase.user_management
 import metaphase.comment_management
-import metaphase.index
+import metaphase.home

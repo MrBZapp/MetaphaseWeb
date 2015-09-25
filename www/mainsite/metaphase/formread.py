@@ -23,7 +23,7 @@ class BlogForm(Form):
     textHTML = TextAreaField('HTML', [validators.length(min=1)])
 
 class CommentForm(Form):
-    # make it so you have to write at least a 5 lietter word.
+    # make it so you have to write at least a 5 letter word.
     # No just 'fuck' on my comments thread, but 'fuck.' is totally fine.
     # punctuate that bitch!
     comment_text = TextAreaField('Write your comment here!', [validators.length(min=5)])

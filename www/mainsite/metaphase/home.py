@@ -1,12 +1,12 @@
 __author__ = 'BroZapp'
 
-from flask import render_template, Markup
+from flask import render_template, redirect, Markup
 from metaphase import app
 import metaphase.blogDB as blogread
 from sqlalchemy import exc as sql_exception
 
-@app.route('/')
-def index():
+@app.route('/home')
+def home():
     try:
         # get all the 'orphan' entries
         entries = blogread.Post.query.filter_by(parent_id=None).all()
@@ -22,3 +22,10 @@ def index():
         # may those that are last, be first.
         entries.reverse()
     return render_template('base.html', title="home", posts=entries, bootstrap=True)
+
+
+#CATCH ALL
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def catch_all(path):
+    return redirect('home')
