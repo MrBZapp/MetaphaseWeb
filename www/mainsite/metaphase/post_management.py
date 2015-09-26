@@ -14,49 +14,44 @@ def post():
     verify_user_log_in()
 
     # if the user is trying to post, make sure they have the credentials.
-    if verify_user_admin():
-        form = formread.BlogForm(request.form)
+    verify_user_admin()
+    form = formread.BlogForm(request.form)
 
-        # if we're submitting the form as opposed to requesting it do these things.
-        if request.method == 'POST':
+    # if we're submitting the form as opposed to requesting it do these things.
+    if request.method == 'POST':
 
-            # import the form content
-            if 'bodyHTML' not in request.files or form.textHTML.data != "":
-                content = form.textHTML.data
+        # import the form content
+        if 'bodyHTML' not in request.files or form.textHTML.data != "":
+            content = form.textHTML.data
 
-            # if the form is empty, upload the file, the effect is identical.
+        # if the form is empty, upload the file, the effect is identical.
+        else:
+            bodyHTML = request.files['bodyHTML']
+            content = bodyHTML.read()
+
+        # get header image
+        if 'headIMG' in request.files:
+            headIMG = request.files['headIMG']
+
+            # if the file is legit replace the filename with it
+            if headIMG and allowed_file(headIMG.filename):
+                file_name = werkzeug.secure_filename(headIMG.filename)
+                headIMG.save(os.path.join(app.root_path, app.config['POST_IMG_FOLDER'], file_name))
+                flash('file submitted. ')
             else:
-                bodyHTML = request.files['bodyHTML']
-                content = bodyHTML.read()
+                flash('If a file was submitted it was of a non-allowed format.')
+        user = blogDB.User.query.filter_by(username=session['user']['username']).first()
+        # add the entry to the database
+        entry = blogDB.Post(user=user, title=form.title.data, content=content)
+        try:
+            db.session.add(entry)
+            db.session.commit()
+            return redirect('/')
+        except sql_exception.OperationalError:
+            flash('Post was not able to be submitted due to a server error.  Maybe try again?')
 
-            # prepare to import the uploaded image file
-            file_name = None
-
-            # get header image
-            if 'headIMG' in request.files:
-                headIMG = request.files['headIMG']
-
-                # if the file is legit replace the filename with it
-                if headIMG and allowed_file(headIMG.filename):
-                    file_name = werkzeug.secure_filename(headIMG.filename)
-                    headIMG.save(os.path.join(app.root_path, app.config['POST_IMG_FOLDER'], file_name))
-                    flash('file submitted. ')
-                else:
-                    flash('If a file was submitted it was of a non-allowed format.')
-            user = blogDB.User.query.filter_by(username=session['user']['username']).first()
-            # add the entry to the database
-            entry = blogDB.Post(user=user, title=form.title.data, content=content)
-            try:
-                db.session.add(entry)
-                db.session.commit()
-                return redirect('/')
-            except sql_exception.OperationalError:
-                flash('Post was not able to be submitted due to a server error.  Maybe try again?')
-
-        base = app.jinja_env.get_template('makepost.html')
-        return render_template(base, title="entering post", form=form, bootstrap=True)
-    else:
-        return redirect('log-in')
+    base = app.jinja_env.get_template('makepost.html')
+    return render_template(base, title="entering post", form=form, bootstrap=True)
 
 
 @app.route('/edit-post', methods=['GET', 'POST'])
@@ -64,55 +59,51 @@ def edit_post():
     # make sure user is logged in
     verify_user_log_in()
 
-    if verify_user_admin():
-        # pull the entry from the database
-        try:
-            entry = blogDB.Post.query.filter_by(id=request.args.get('entry')).first()
-        except sql_exception.OperationalError:
-            entry = blogDB.Post("General Error", "Whoops", "The server had a senior moment, or something like that.\
-              Give it a minute and try again, and then contact the administrator", "")
+    verify_user_admin()
+    # pull the entry from the database
+    try:
+        entry = blogDB.Post.query.filter_by(id=request.args.get('entry')).first()
+    except sql_exception.OperationalError:
+        entry = blogDB.Post("General Error", "Whoops", "The server had a senior moment, or something like that.\
+          Give it a minute and try again, and then contact the administrator", "")
 
-        # if the entry doesn't exist, tell the user.
-        if entry is None:
-            flash("There are no posts with ID # " + request.args.get('entry') + " to be edited.")
-            return redirect('/')
+    # if the entry doesn't exist, tell the user.
+    if entry is None:
+        flash("There are no posts with ID # " + request.args.get('entry') + " to be edited.")
+        return redirect('/')
 
-        form = formread.BlogForm(request.form)
+    form = formread.BlogForm(request.form)
 
-        # update the relevant parts of the post
-        if request.method == 'POST':
-            if form.textHTML.data != "":
-                entry.content = form.textHTML.data
-                flash("content updated")
+    # update the relevant parts of the post
+    if request.method == 'POST':
+        if form.textHTML.data != "":
+            entry.content = form.textHTML.data
+            flash("content updated")
 
-            if form.title.data != "":
-                entry.title = form.title.data
-                flash("title updated")
+        if form.title.data != "":
+            entry.title = form.title.data
+            flash("title updated")
 
-            # get header image
-            if 'headIMG' in request.files:
-                headIMG = request.files['headIMG']
+        # get header image
+        if 'headIMG' in request.files:
+            headIMG = request.files['headIMG']
 
-                # if the file is legit replace the filename with it
-                if headIMG and allowed_file(headIMG.filename):
-                    filename = werkzeug.secure_filename(headIMG.filename)
-                    headIMG.save(os.path.join(app.root_path, app.config['POST_IMG_FOLDER'], filename))
+            # if the file is legit replace the filename with it
+            if headIMG and allowed_file(headIMG.filename):
+                filename = werkzeug.secure_filename(headIMG.filename)
+                headIMG.save(os.path.join(app.root_path, app.config['POST_IMG_FOLDER'], filename))
 
-                    # update the entry
-                    entry.head_img = filename
-                    flash("head image updated")
+                # update the entry
+                entry.head_img = filename
+                flash("head image updated")
 
-            db.session.commit()
+        db.session.commit()
 
-            return redirect('/')
-
-        else:
-            # pre-populate the form:
-            form = formread.BlogForm(title=entry.title, textHTML=entry.content)
-
-        base = app.jinja_env.get_template('edit-post.html')
-        return render_template(base, title="editing post", form=form, id=request.args.get('entry'), bootstrap=True)
+        return redirect('/')
 
     else:
-        return redirect('log_in')
+        # pre-populate the form:
+        form = formread.BlogForm(title=entry.title, textHTML=entry.content)
 
+    base = app.jinja_env.get_template('edit-post.html')
+    return render_template(base, title="editing post", form=form, id=request.args.get('entry'), bootstrap=True)

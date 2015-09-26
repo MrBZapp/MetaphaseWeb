@@ -62,6 +62,26 @@ class Post(db.Model):
         if title is not None:
             self.title = title
 
-
     def __repr__(self):
         return "<Post(date='%s', author='%s', title='%s')>" % (self.datetime, self.author, self.title)
+
+
+class Project(db.Model):
+    """Database Model of a blog post or comment"""
+    id = db.Column(Integer, primary_key=True)
+    title = db.Column(String(144), nullable=False)
+    pict = db.Column(String(144), nullable=False)
+    abstract = db.Column(types.Text(), nullable=False)
+
+    def __init__(self, title, pict, abstract):
+        """
+        :param title: the name of the project, or one-liner.
+        :param pict: a headline picture for the jorb.
+        :param abstract: a quick abstract about the project
+        """
+        self.title = title
+        self.pict = pict
+        self.abstract = abstract
+
+    def __repr__(self):
+        return "<Project(title='%s')>" % self.title

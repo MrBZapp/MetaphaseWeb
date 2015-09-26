@@ -16,8 +16,7 @@ def verify_user_admin():
     user = session['user']
     if user['admin'] != 1:
         flash('You require administrative rights to do that.')
-        return False
-    return True
+        raise RequestRedirect('log-in')
 
 
 def load_user(new_user):

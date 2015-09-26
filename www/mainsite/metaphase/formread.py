@@ -27,3 +27,8 @@ class CommentForm(Form):
     # No just 'fuck' on my comments thread, but 'fuck.' is totally fine.
     # punctuate that bitch!
     comment_text = TextAreaField('Write your comment here!', [validators.length(min=5)])
+
+class ProjectForm(Form):
+    title = StringField('Title', [validators.length(min=1)])
+    headIMG = FileField('Upload Headline Image')
+    abstract = TextAreaField('Abstract', [validators.length(min=1)])

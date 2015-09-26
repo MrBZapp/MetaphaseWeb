@@ -1,6 +1,6 @@
 __author__ = 'BroZapp'
 
-from flask import request, redirect, Markup, render_template
+from flask import request, Markup, render_template
 from metaphase import app, db, blogDB, user_management, formread
 
 @app.route('/comment', methods=['GET', 'POST'])

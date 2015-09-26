@@ -2,14 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e69dea0a-7796-4f07-9693-5f4727e8e7c5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../dev/img/logoVector.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../dev/img/logoVectorBlack.svg" />
-      <change type="MOVED" beforePath="C:\Users\BroZapp\mainsite\git\www\mainsite\metaphase\index.py" afterPath="$PROJECT_DIR$/metaphase/home.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/metaphase/templates/makeproject.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/metaphase/projects.py" />
+      <change type="DELETED" beforePath="C:\Users\BroZapp\mainsite\git\www\mainsite\metaphase\static\posts\img\Bonsai.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\BroZapp\mainsite\git\www\mainsite\metaphase\static\posts\img\Dog_-_EP.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\BroZapp\mainsite\git\www\mainsite\metaphase\static\posts\img\KPS_Mono_Log.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\BroZapp\mainsite\git\www\mainsite\metaphase\static\posts\img\Metaphase_header.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\BroZapp\mainsite\git\www\mainsite\metaphase\static\posts\img\metaphasev3.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/metaphase/__init__.py" afterPath="$PROJECT_DIR$/metaphase/__init__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/metaphase/blogDB.py" afterPath="$PROJECT_DIR$/metaphase/blogDB.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/metaphase/comment_management.py" afterPath="$PROJECT_DIR$/metaphase/comment_management.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/metaphase/formread.py" afterPath="$PROJECT_DIR$/metaphase/formread.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/metaphase/templates/layout_header.html" afterPath="$PROJECT_DIR$/metaphase/templates/layout_header.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/metaphase/post_management.py" afterPath="$PROJECT_DIR$/metaphase/post_management.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/metaphase/user_management.py" afterPath="$PROJECT_DIR$/metaphase/user_management.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -38,8 +43,8 @@
       <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/metaphase/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="630">
-              <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
+              <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
               <folding>
                 <element signature="e#25#48#0" expanded="true" />
               </folding>
@@ -47,34 +52,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="connections.py" pinned="false" current-in-tab="true">
-        <entry file="file://C:/Python27/Lib/site-packages/pymysql/connections.py">
+      <file leaf-file-name="post_management.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/metaphase/post_management.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4346847" vertical-offset="12857" max-vertical-offset="19695">
-              <caret line="871" column="14" selection-start-line="871" selection-start-column="14" selection-end-line="871" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/metaphase/home.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="540">
-              <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1710">
+              <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="43" />
               <folding>
-                <element signature="e#24#75#0" expanded="true" />
+                <element signature="e#24#92#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="run_metaphase.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/run_metaphase.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
-              <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -82,11 +67,63 @@
       <file leaf-file-name="blogDB.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/metaphase/blogDB.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="585" max-vertical-offset="1080">
-              <caret line="56" column="30" selection-start-line="56" selection-start-column="30" selection-end-line="56" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="936" max-vertical-offset="1380">
+              <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="projects.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/metaphase/projects.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="501" max-vertical-offset="990">
+              <caret line="46" column="47" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="47" />
+              <folding>
+                <element signature="e#24#83#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="makepost.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/metaphase/templates/makepost.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="270">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="12" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout_header.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/metaphase/templates/layout_header.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.34285715" vertical-offset="21" max-vertical-offset="585">
+              <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="makeproject.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/metaphase/templates/makeproject.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="255">
+              <caret line="3" column="71" selection-start-line="3" selection-start-column="71" selection-end-line="3" selection-end-column="71" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="formread.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/metaphase/formread.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="111" max-vertical-offset="600">
+              <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -95,19 +132,7 @@
         <entry file="file://$PROJECT_DIR$/metaphase/comment_management.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
-              <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
-              <folding>
-                <element signature="e#24#84#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="formread.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/metaphase/formread.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="66" max-vertical-offset="510">
-              <caret line="28" column="88" selection-start-line="28" selection-start-column="88" selection-end-line="28" selection-end-column="88" />
+              <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -118,28 +143,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-10.625" vertical-offset="0" max-vertical-offset="360">
               <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user_management.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/metaphase/user_management.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1245">
-              <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
-              <folding>
-                <element signature="e#23#37#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_pydev_pluginbase.py" pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_pluginbase.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="6572" max-vertical-offset="7185">
-              <caret line="451" column="0" selection-start-line="451" selection-start-column="0" selection-end-line="451" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -181,17 +184,20 @@
         <option value="$PROJECT_DIR$/metaphase/blogDBclasses.py" />
         <option value="$PROJECT_DIR$/metaphase/blogread.py" />
         <option value="$PROJECT_DIR$/metaphase/templates/comment.html" />
-        <option value="$PROJECT_DIR$/metaphase/post_management.py" />
         <option value="$PROJECT_DIR$/metaphase/templates/macros/_posthelpers.html" />
         <option value="$PROJECT_DIR$/metaphase/templates/register.html" />
         <option value="$PROJECT_DIR$/metaphase/templates/titlebar.html" />
-        <option value="$PROJECT_DIR$/metaphase/blogDB.py" />
-        <option value="$PROJECT_DIR$/metaphase/templates/layout_header.html" />
         <option value="$PROJECT_DIR$/metaphase/index.py" />
-        <option value="$PROJECT_DIR$/metaphase/formread.py" />
+        <option value="$PROJECT_DIR$/metaphase/home.py" />
         <option value="$PROJECT_DIR$/metaphase/comment_management.py" />
+        <option value="$PROJECT_DIR$/metaphase/formread.py" />
         <option value="$PROJECT_DIR$/metaphase/user_management.py" />
+        <option value="$PROJECT_DIR$/metaphase/post_management.py" />
+        <option value="$PROJECT_DIR$/metaphase/blogDB.py" />
+        <option value="$PROJECT_DIR$/metaphase/templates/makeproject.html" />
+        <option value="$PROJECT_DIR$/metaphase/projects.py" />
         <option value="$PROJECT_DIR$/metaphase/__init__.py" />
+        <option value="$PROJECT_DIR$/metaphase/templates/layout_header.html" />
       </list>
     </option>
   </component>
@@ -305,6 +311,10 @@
               <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -324,7 +334,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
+              <option name="myItemId" value="posts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mainsite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mainsite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="metaphase" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -349,12 +377,16 @@
     </option>
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\BroZapp\mainsite\git\www\mainsite\metaphase\static" />
+      <recent name="C:\Users\BroZapp\mainsite\git\www\mainsite\metaphase\templates\mastering" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\BroZapp\mainsite\git\www\mainsite\metaphase\templates" />
       <recent name="C:\Users\BroZapp\mainsite\git\www\mainsite\metaphase\static" />
       <recent name="C:\Users\BroZapp\mainsite\git\www\mainsite" />
       <recent name="C:\Users\BroZapp\mainsite\git\www\mainsite\metaphase" />
       <recent name="C:\Users\BroZapp\mainsite\git\www\mainsite\metaphase_app" />
-      <recent name="C:\Users\BroZapp\mainsite\git\www\mainsite\templates" />
     </key>
   </component>
   <component name="RunManager" selected="Python.index">
@@ -624,10 +656,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1394" height="916" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2359882" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2359882" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -701,25 +733,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="72" />
+      <option name="time" value="75" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/metaphase/templates/makepost.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="212" max-vertical-offset="870">
-          <caret line="10" column="63" selection-start-line="10" selection-start-column="63" selection-end-line="10" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/metaphase/templates/posts.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="272">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Python27/Lib/site-packages/werkzeug/_reloader.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2398" max-vertical-offset="4607">
@@ -828,13 +846,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/metaphase/templates/makepost.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="270">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="12" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/metaphase/templates/edit-post.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="255">
@@ -919,13 +930,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/flask/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="21377" max-vertical-offset="27345">
-          <caret line="1460" column="0" selection-start-line="1460" selection-start-column="0" selection-end-line="1460" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/metaphase/templates/macros/_posthelpers.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="420">
@@ -972,14 +976,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/metaphase/post_management.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1260" max-vertical-offset="1770">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/metaphase/templates/posts.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.625" vertical-offset="0" max-vertical-offset="150">
@@ -988,18 +984,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/metaphase/formread.py">
+    <entry file="file://$PROJECT_DIR$/metaphase/static/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="66" max-vertical-offset="510">
-          <caret line="28" column="88" selection-start-line="28" selection-start-column="88" selection-end-line="28" selection-end-column="88" />
+        <state vertical-scroll-proportion="0.4391892" vertical-offset="0" max-vertical-offset="2760">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/pymysql/connections.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4346847" vertical-offset="12857" max-vertical-offset="19695">
+          <caret line="871" column="14" selection-start-line="871" selection-start-column="14" selection-end-line="871" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_metaphase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
+          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/flask/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="21377" max-vertical-offset="27345">
+          <caret line="1460" column="0" selection-start-line="1460" selection-start-column="0" selection-end-line="1460" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metaphase/home.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="36" max-vertical-offset="540">
+          <caret line="11" column="69" selection-start-line="11" selection-start-column="69" selection-end-line="11" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metaphase/user_management.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="1230">
+          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+          <folding>
+            <element signature="e#23#37#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_pluginbase.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="6572" max-vertical-offset="7185">
-          <caret line="451" column="0" selection-start-line="451" selection-start-column="0" selection-end-line="451" selection-end-column="0" />
+          <caret line="453" column="4" selection-start-line="453" selection-start-column="4" selection-end-line="453" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metaphase/formread.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="111" max-vertical-offset="600">
+          <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metaphase/comment_management.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
+          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -1012,84 +1066,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/metaphase/user_management.py">
+    <entry file="file://$PROJECT_DIR$/metaphase/templates/makepost.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1245">
-          <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
-          <folding>
-            <element signature="e#23#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/metaphase/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4391892" vertical-offset="0" max-vertical-offset="2760">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="270">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="12" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/metaphase/templates/layout_header.html">
+    <entry file="file://$PROJECT_DIR$/metaphase/templates/makeproject.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45" vertical-offset="21" max-vertical-offset="600">
-          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+        <state vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="255">
+          <caret line="3" column="71" selection-start-line="3" selection-start-column="71" selection-end-line="3" selection-end-column="71" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/metaphase/comment_management.py">
+    <entry file="file://$PROJECT_DIR$/metaphase/post_management.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
-          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1710">
+          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="43" />
           <folding>
-            <element signature="e#24#84#0" expanded="true" />
+            <element signature="e#24#92#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/metaphase/blogDB.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="585" max-vertical-offset="1080">
-          <caret line="56" column="30" selection-start-line="56" selection-start-column="30" selection-end-line="56" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="936" max-vertical-offset="1380">
+          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/metaphase/home.py">
+    <entry file="file://$PROJECT_DIR$/metaphase/projects.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="540">
-          <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="501" max-vertical-offset="990">
+          <caret line="46" column="47" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="47" />
           <folding>
-            <element signature="e#24#75#0" expanded="true" />
+            <element signature="e#24#83#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/run_metaphase.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
-          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/metaphase/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="630">
-          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
           <folding>
             <element signature="e#25#48#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/pymysql/connections.py">
+    <entry file="file://$PROJECT_DIR$/metaphase/templates/layout_header.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4346847" vertical-offset="12857" max-vertical-offset="19695">
-          <caret line="871" column="14" selection-start-line="871" selection-start-column="14" selection-end-line="871" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.34285715" vertical-offset="21" max-vertical-offset="585">
+          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
           <folding />
         </state>
       </provider>
