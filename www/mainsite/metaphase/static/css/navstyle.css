@@ -1,0 +1,78 @@
+@font-face {
+    font-family: Comfortaa-Light;
+    src: url(fonts/Comfortaa-Light.ttf);
+}
+
+
+#titlebar {
+    position: fixed;
+    background-color: rgba(22, 22, 22, 0.75);
+    width: 100%;
+    height: 50px;
+    z-index: 2;
+}
+
+#logo {
+   position: relative;
+   padding: 10px;
+}
+
+.tag {
+    float:left;
+    position:absolute;
+    left:0px;
+    top:0px;
+    padding: 10px;
+}
+
+.navblock {
+    display: inline-block;
+    letter-spacing: 3px;
+    border-left: 1pt solid #888;
+    border-right: 1pt solid #888;
+    font-size: 14pt;
+
+    height: 100%;
+    background-color: #666;
+    #font-family: "Comfortaa-Light", Sans-Serif;
+}
+
+.navblock:hover {
+    background-color:#777;
+}
+
+.navblock a {
+        color: #ccc;
+        text-decoration: none;
+    }
+
+.navblock a:hover {
+    color: #EEF;
+}
+
+    .nav-caption {
+        text-align: center;
+        vertical-align: middle;
+        padding-left: 10px;
+        padding-right: 10px;
+        line-height: 40px;
+    }
+
+#submenu {
+    border-top: solid;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: #CCC;
+    padding-left: 140px;
+    height: 40px;
+    background-color: #555;
+    width: 100%;
+    z-index: 1;
+    position: fixed;
+    top: 50px;
+}
+
+#leftpad{
+    width: 140px;
+    min-width: 140px
+}

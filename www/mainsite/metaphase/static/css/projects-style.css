@@ -10,6 +10,7 @@
     max-height: 20%;
     overflow: hidden;
     background-color: #222222;
+    box-shadow: -2px -2px 15px 0px #151515;
 }
 
 .project-row h1{
@@ -20,7 +21,7 @@
 .project-row:hover{
     border: solid;
     border-width: 1px;
-    border-color: #444444;
+    border-color: #404040;
 }
 
 .project-row img{

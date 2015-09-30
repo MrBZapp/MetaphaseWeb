@@ -2,33 +2,22 @@
 	<div id="logo">
 		<img class="tag" src="{{url_for('static', filename='img/metaphase3.png')}}">
 	</div>
-	<div id="navigation">	
-		<div class="navblock" id="leftpad">
-		    <div class="nav-caption"></div>
-   	  	       <!-- <div class="nav-bottom"></div> -->
-    	</div>
-
+</div>
+<div id="submenu">
 	{% for href, id, caption in [
 	    ('/', 'index', 'Home'),
 	    ('/projects', 'projects', 'Projects'),
-	    ('/about', 'about', 'About'),
-	  ] %}
+	    ('/about', 'about', 'About')
+    ] %}
 
-	  	<div class="navblock">
+        <div class="navblock">
 			<a  href="{{ href|e }}">
-			    <div class="nav-accent" {% if id == active_page %} id="active"{% endif %}>&nbsp;</div>  
+			  <!--  <div class="nav-accent" {% if id == active_page %} id="active"{% endif %}>&nbsp;</div> -->
 	  	        <div class="nav-caption"> {{ caption|e }} </div>
    	  	        <!-- <div class="nav-bottom"></div> !-->
   	        </a>
     	</div>
 	{% endfor %}
-		<div class="navblock" id="rightpad">
-		    <div class="nav-caption"></div>
-   	  	    <!--  <div class="nav-bottom"></div>  -->
-    	</div>
-	</div>
-</div>
-<div id="submenu">
     {% from "macros/_formhelpers.html" import render_flashed_all %}
     {{ render_flashed_all() }}
 </div>
