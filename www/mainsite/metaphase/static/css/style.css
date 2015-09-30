@@ -147,16 +147,22 @@ body {
 
 .post-header {
     border-bottom: solid;
-    #border-color: #06c;
     border-width: 1px;
     border-color: #0cf;
-    #border-top-left-radius: 10px;
-    #background-color: #048;
     color:#ccc;
     font-weight: 700;
     font-size: 20pt;
-    padding: 0px 0px 0px 0px;
 }
+
+h1 {
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: #0cf;
+    color:#ccc;
+    font-weight: 700;
+    font-size: 20pt;
+}
+
 
 .post .headline-image{
     margin-left: auto;

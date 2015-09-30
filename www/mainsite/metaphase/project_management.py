@@ -10,6 +10,7 @@ import os
 @app.route('/projects')
 def projects():
     project_id = request.args.get('post_id')
+    base = app.jinja_env.get_template('projects.html')
 
     if project_id is not None:
         pass
@@ -18,7 +19,7 @@ def projects():
 
     if project_list is not None:
         project_list.reverse()
-    return render_template('base.html', title="home", projects=project_list, bootstrap=True)
+    return render_template(base, title="projects", projects=project_list, bootstrap=True)
 
 @app.route('/create-project', methods=['GET', 'POST'])
 def create_project():
@@ -49,7 +50,7 @@ def create_project():
 
 
         # add the entry to the database
-        entry = blogDB.Project(title=form.title.data, pict=headIMG.filename, abstract=form.abstract.data)
+        entry = blogDB.Project(title=form.title.data, pict=file_name, abstract=form.abstract.data)
         try:
             db.session.add(entry)
             db.session.commit()

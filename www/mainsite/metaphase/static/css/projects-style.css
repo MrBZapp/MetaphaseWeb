@@ -1,0 +1,41 @@
+.project-row {
+
+    border: solid;
+    border-width: 1px;
+    border-color: transparent;
+
+    position: relative;
+    margin: 10px 10px 0px 10px;
+    font-size: 12pt;
+    max-height: 20%;
+    overflow: hidden;
+    background-color: #222222;
+}
+
+.project-row h1{
+    margin-top: 0;
+    overflow: hidden;
+}
+
+.project-row:hover{
+    border: solid;
+    border-width: 1px;
+    border-color: #444444;
+}
+
+.project-row img{
+    width: 200px;
+    #background-color: blue;
+    float: left;
+    margin-right: 10px;
+}
+
+
+.project-title {
+}
+
+.project-abstract {
+    padding-left: 10px;
+    padding-right: 10px;
+    overflow: hidden;
+}

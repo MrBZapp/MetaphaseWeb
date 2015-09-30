@@ -10,7 +10,7 @@ GLOBAL_ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 POST_IMG_FOLDER = '/static/posts/img/'
 POST_TMP_FOLDER = '/static/posts/tmp'
 PROJECT_TMP_FOLDER = 'static/projects/tmp'
-PROJECT_IMG_FOLDER = 'static/projects/IMG'
+PROJECT_IMG_FOLDER = 'static/projects/img'
 
 # Config dependent paths
 #DATABASE_URI = 'mysql+pymysql://web-server:m3tadmin@localhost/blogdata' #Production
@@ -39,6 +39,6 @@ db.create_all()
 import metaphase.post_management
 import metaphase.user_management
 import metaphase.comment_management
-import metaphase.projects
+import metaphase.project_management
 import metaphase.home
 

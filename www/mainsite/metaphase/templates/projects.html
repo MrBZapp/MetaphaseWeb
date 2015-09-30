@@ -1,0 +1,12 @@
+{% from "macros/_projecthelpers.html" import render_project_list_item %}
+{% extends 'base.html' %}
+
+{% block pagestyle %}
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/projects-style.css')}}"/>
+{% endblock %}
+
+{% block layout_body %}
+    {% for project in projects: %}
+        {{ render_project_list_item(project) }}
+    {%endfor%}
+{% endblock %}
