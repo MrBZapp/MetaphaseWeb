@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e69dea0a-7796-4f07-9693-5f4727e8e7c5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/metaphase/static/css/fonts/Comfortaa-Light.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/metaphase/static/css/navstyle.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/metaphase/static/img/metaphase3.png" afterPath="$PROJECT_DIR$/metaphase/static/img/metaphase3.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/metaphase/templates/macros/_posthelpers.html" afterPath="$PROJECT_DIR$/metaphase/templates/macros/_posthelpers.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/metaphase/templates/base.html" afterPath="$PROJECT_DIR$/metaphase/templates/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/metaphase/templates/layout_header.html" afterPath="$PROJECT_DIR$/metaphase/templates/layout_header.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/metaphase/static/css/projects-style.css" afterPath="$PROJECT_DIR$/metaphase/static/css/projects-style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/metaphase/static/css/style.css" afterPath="$PROJECT_DIR$/metaphase/static/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/metaphase/static/css/navstyle.css" afterPath="$PROJECT_DIR$/metaphase/static/css/navstyle.css" />
     </list>
     <ignored path="mainsite.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -89,8 +81,8 @@
       <file leaf-file-name="navstyle.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/metaphase/static/css/navstyle.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.37768242" vertical-offset="561" max-vertical-offset="1260">
-              <caret line="55" column="27" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="27" />
+            <state vertical-scroll-proportion="0.6223176" vertical-offset="0" max-vertical-offset="1260">
+              <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -1116,8 +1108,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/metaphase/static/css/navstyle.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37768242" vertical-offset="561" max-vertical-offset="1260">
-          <caret line="55" column="27" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.6223176" vertical-offset="0" max-vertical-offset="1260">
+          <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
           <folding />
         </state>
       </provider>
