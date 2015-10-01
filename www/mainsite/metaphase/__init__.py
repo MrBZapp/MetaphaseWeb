@@ -13,8 +13,8 @@ PROJECT_TMP_FOLDER = 'static/projects/tmp'
 PROJECT_IMG_FOLDER = 'static/projects/img'
 
 # Config dependent paths
-#DATABASE_URI = 'mysql+pymysql://web-server:m3tadmin@localhost/blogdata' #Production
-DATABASE_URI = 'mysql+pymysql://admin:admin@127.0.0.1:63306/blogdata' #Dev
+DATABASE_URI = 'mysql+pymysql://web-server:m3tadmin@localhost/blogdata' #Production
+#DATABASE_URI = 'mysql+pymysql://admin:admin@127.0.0.1:63306/blogdata' #Dev
 
 # Create the app and blank database
 app = Flask(__name__)

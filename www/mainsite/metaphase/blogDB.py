@@ -30,7 +30,8 @@ class Post(db.Model):
     """Database Model of a blog post or comment"""
     id = db.Column(Integer, primary_key=True)
     parent_id = db.Column(Integer, db.ForeignKey('post.id'))
-    author = db.Column(Integer, db.ForeignKey('user.id'))
+    author_id = db.Column(Integer, db.ForeignKey('user.id'))
+    author_str = db.Column(String(144))
     title = db.Column(String(144), nullable=True)
     content = db.Column(types.Text(), nullable=False)
     datetime = db.Column(types.DATETIME)
@@ -47,8 +48,8 @@ class Post(db.Model):
         :param title: the tile of the post
         :return: <Post>
         """
-        self.user = user
-        self.author = self.user.id
+        self.author_id = user.id
+        self.author_str = user.username
         self.content = content
         self.datetime = dt.now()
         self.comment_count = 0
@@ -63,7 +64,7 @@ class Post(db.Model):
             self.title = title
 
     def __repr__(self):
-        return "<Post(date='%s', author='%s', title='%s')>" % (self.datetime, self.author, self.title)
+        return "<Post(date='%s', author='%s', title='%s')>" % (self.datetime, self.author_id, self.title)
 
 
 class Project(db.Model):

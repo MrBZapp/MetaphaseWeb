@@ -6,7 +6,7 @@
     </div>
     <div class="footer">
         <p>
-            Posted by {{data.author}} at {{data.datetime}}. &nbsp;
+            Posted by {{data.author_str}} at {{data.datetime}}. &nbsp;
 	        <a class="comment_link" href="{{ url_for('comment') }}?post_id={{ data.id }}"> Comments({{ data.comment_count }})</a>
             {% if session.user is not undefined %}
                 {% if session.user['admin'] == 1 %}

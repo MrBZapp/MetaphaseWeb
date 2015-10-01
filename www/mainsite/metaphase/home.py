@@ -12,9 +12,10 @@ def home():
         entries = blogread.Post.query.filter_by(parent_id=None).all()
 
     except sql_exception.OperationalError:
-        entries = [blogread.Post("Server", "Whoops", "The server forgot to provide any data or something,\
+        user = blogread.User("Server", "Server", "Server", "Not Your Business")
+        entries = [blogread.Post(user=user, content="The server forgot to provide any data or something,\
             we're not positive yet. <br> Give it a shot again but please cool it contact the system administrator \
-            if the problem persists.", "")]
+            if the problem persists.", title="Whoops")]
 
     if entries is not None:
         for entry in entries:
