@@ -54,7 +54,7 @@ def create_project():
         try:
             db.session.add(entry)
             db.session.commit()
-            return redirect('/')
+            return redirect('/projects')
         except sql_exception.OperationalError:
             flash('Post was not able to be submitted due to a server error.  Maybe try again?')
 

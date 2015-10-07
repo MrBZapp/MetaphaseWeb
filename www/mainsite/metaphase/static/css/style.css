@@ -61,6 +61,21 @@ h1 {
     font-size: 20pt;
 }
 
+.button {
+    color: #222;
+}
+
+#title{
+    width: 100%;
+    background-color: white;
+}
+
+#textinput {
+    color: #222;
+    width: 100%;
+    min-height: 200px;
+}
+
 
 .post .headline-image{
     margin-left: auto;

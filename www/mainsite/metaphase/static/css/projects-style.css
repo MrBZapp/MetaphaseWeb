@@ -1,5 +1,13 @@
-.project-row {
+.projects a{
+    color: #CCC;
+    text-decoration: none;
+}
+.projects a:hover{
+    color: #EEE;
+    text-decoration: none;
+}
 
+.project-row {
     border: solid;
     border-width: 1px;
     border-color: transparent;
@@ -7,7 +15,8 @@
     position: relative;
     margin: 10px 10px 0px 10px;
     font-size: 12pt;
-    max-height: 20%;
+    height: 20%;
+    max-height: 200px;
     overflow: hidden;
     background-color: #222222;
     box-shadow: -2px -2px 15px 0px #151515;
@@ -19,6 +28,7 @@
 }
 
 .project-row:hover{
+
     border: solid;
     border-width: 1px;
     border-color: #404040;
@@ -40,3 +50,6 @@
     padding-right: 10px;
     overflow: hidden;
 }
+
+
+

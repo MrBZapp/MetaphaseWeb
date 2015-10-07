@@ -1,6 +1,6 @@
 __author__ = 'BroZapp'
 
-from flask import render_template, redirect, Markup
+from flask import render_template, redirect, Markup, flash
 from metaphase import app
 import metaphase.blogDB as blogread
 from sqlalchemy import exc as sql_exception
@@ -29,4 +29,5 @@ def home():
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def catch_all(path):
+    flash("The page you tried to visit doesn't seem to exist.")
     return redirect('home')

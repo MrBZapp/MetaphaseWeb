@@ -6,7 +6,9 @@
 {% endblock %}
 
 {% block layout_body %}
-    {% for project in projects: %}
-        {{ render_project_list_item(project) }}
-    {%endfor%}
+    <div class="projects">
+        {% for project in projects: %}
+            {{ render_project_list_item(project) }}
+        {%endfor%}
+    </div>
 {% endblock %}

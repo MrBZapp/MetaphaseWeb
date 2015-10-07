@@ -11,9 +11,8 @@ class User(db.Model):
     real_name = db.Column(String(144), nullable=False)
     email = db.Column(String(144), nullable=False)
     _hash = db.Column(String(144), nullable=False)
-    _admin = db.Column(Integer)
-
     posts = db.relationship('Post', backref='user', lazy='dynamic')
+    _admin = db.Column(Integer)
 
     def __init__(self, username, real_name, email, password):
         self.username = username

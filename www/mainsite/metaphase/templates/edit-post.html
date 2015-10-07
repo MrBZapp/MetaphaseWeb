@@ -6,7 +6,11 @@
         {{ render_field(form.title) }}
         {{ render_field(form.headIMG) }}
         {{ render_field(form.textHTML) }}
-  </dl>
-  <p><input type=submit value='post'>
+        {{ render_field(form.delete) }}
+    </dl>
+    <p>
+        <input type=submit value='update' class="button">
+    </p>
+
 </form>
 {% endblock %}

@@ -9,7 +9,7 @@ def verify_user_log_in():
     # make sure user is logged in
     if 'user' not in session:
         flash('please log in to do that.')
-        raise RequestRedirect('log-in')
+        raise RequestRedirect('/log-in')
 
 
 def verify_user_admin():
@@ -43,7 +43,7 @@ def register():
         db.session.commit()
         flash('Thanks for registering')
         load_user(user)
-        return redirect('/')
+        return redirect('/home')
     return render_template('register.html', form=form, bootstrap=True)
 
 
@@ -63,7 +63,7 @@ def log_in():
         if new_user._hash == test_hash:
             load_user(new_user)
             flash("Logged in")
-            return redirect('/')
+            return redirect('/home')
         else:
             flash("username or password is incorrect")
 
@@ -74,4 +74,4 @@ def log_in():
 def log_out():
     session.pop('user')
     flash('logged out!')
-    return redirect('/')
+    return redirect('/home')

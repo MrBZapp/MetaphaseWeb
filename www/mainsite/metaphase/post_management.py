@@ -46,7 +46,7 @@ def post():
         try:
             db.session.add(entry)
             db.session.commit()
-            return redirect('/')
+            return redirect('/home')
         except sql_exception.OperationalError:
             flash('Post was not able to be submitted due to a server error.  Maybe try again?')
 
@@ -56,10 +56,10 @@ def post():
 
 @app.route('/edit-post', methods=['GET', 'POST'])
 def edit_post():
-    # make sure user is logged in
+    # make sure user is logged in and is an administrator
     verify_user_log_in()
-
     verify_user_admin()
+
     # pull the entry from the database
     try:
         entry = blogDB.Post.query.filter_by(id=request.args.get('entry')).first()
@@ -70,40 +70,43 @@ def edit_post():
     # if the entry doesn't exist, tell the user.
     if entry is None:
         flash("There are no posts with ID # " + request.args.get('entry') + " to be edited.")
-        return redirect('/')
+        return redirect('/home')
 
     form = formread.BlogForm(request.form)
 
     # update the relevant parts of the post
     if request.method == 'POST':
-        if form.textHTML.data != "":
-            entry.content = form.textHTML.data
-            flash("content updated")
+        if form.delete.data is True:
+            db.session.delete(entry)
 
-        if form.title.data != "":
-            entry.title = form.title.data
-            flash("title updated")
+        else:
+            if form.textHTML.data != "":
+                entry.content = form.textHTML.data
+                flash("content updated")
 
-        # get header image
-        if 'headIMG' in request.files:
-            headIMG = request.files['headIMG']
+            if form.title.data != "":
+                entry.title = form.title.data
+                flash("title updated")
 
-            # if the file is legit replace the filename with it
-            if headIMG and allowed_file(headIMG.filename):
-                filename = werkzeug.secure_filename(headIMG.filename)
-                headIMG.save(os.path.join(app.root_path, app.config['POST_IMG_FOLDER'], filename))
+            # get header image
+            if 'headIMG' in request.files:
+                headIMG = request.files['headIMG']
 
-                # update the entry
-                entry.head_img = filename
-                flash("head image updated")
+                # if the file is legit replace the filename with it
+                if headIMG and allowed_file(headIMG.filename):
+                    filename = werkzeug.secure_filename(headIMG.filename)
+                    headIMG.save(os.path.join(app.root_path, app.config['POST_IMG_FOLDER'], filename))
+
+                    # update the entry
+                    entry.head_img = filename
+                    flash("head image updated")
 
         db.session.commit()
-
-        return redirect('/')
+        return redirect('/home')
 
     else:
         # pre-populate the form:
         form = formread.BlogForm(title=entry.title, textHTML=entry.content)
 
     base = app.jinja_env.get_template('edit-post.html')
-    return render_template(base, title="editing post", form=form, id=request.args.get('entry'), bootstrap=True)
+    return render_template(base, title="editing post", form=form, id=request.args.get('entry'))
