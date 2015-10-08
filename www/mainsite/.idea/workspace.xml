@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e69dea0a-7796-4f07-9693-5f4727e8e7c5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/metaphase/static/img/MattsFace.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/metaphase/static/img/aboutbanner.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/metaphase/static/css/about-style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/metaphase/templates/about.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/metaphase/about.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/metaphase/__init__.py" afterPath="$PROJECT_DIR$/metaphase/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/metaphase/static/css/style.css" afterPath="$PROJECT_DIR$/metaphase/static/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/metaphase/templates/about.html" afterPath="$PROJECT_DIR$/metaphase/templates/about.html" />
     </list>
     <ignored path="mainsite.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,8 +53,8 @@
       <file leaf-file-name="about.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/metaphase/templates/about.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47916666" vertical-offset="0" max-vertical-offset="720">
-              <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.5208333" vertical-offset="0" max-vertical-offset="720">
+              <caret line="25" column="158" selection-start-line="25" selection-start-column="158" selection-end-line="25" selection-end-column="158" />
               <folding />
             </state>
           </provider>
@@ -1125,8 +1118,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/metaphase/templates/about.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47916666" vertical-offset="0" max-vertical-offset="720">
-          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.5208333" vertical-offset="0" max-vertical-offset="720">
+          <caret line="25" column="158" selection-start-line="25" selection-start-column="158" selection-end-line="25" selection-end-column="158" />
           <folding />
         </state>
       </provider>
