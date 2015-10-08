@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e69dea0a-7796-4f07-9693-5f4727e8e7c5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/metaphase/templates/about.html" afterPath="$PROJECT_DIR$/metaphase/templates/about.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/metaphase/database/metaphase.db" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/metaphase/database/main_repo/README" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/metaphase/database/main_repo/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/metaphase/database/main_repo/versions/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/metaphase/database/manage.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/metaphase/database/main_repo/manage.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/metaphase/database/main_repo/migrate.cfg" />
     </list>
     <ignored path="mainsite.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -658,10 +664,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1394" height="916" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2359882" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2359882" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
