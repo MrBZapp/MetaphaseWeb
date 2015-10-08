@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block pagestyle %}
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/about-style.css')}}"/>
+{% endblock %}
+
+{% block layout_body %}
+<div class="about">
+    <h1>Metaphase is:</h1>
+    <p>
+        The third stage of cellar division where all the chromosomes have aligned in the center of their cell before fully dividing into two. It is also an audio-technology firm based in Somerville, Massachusetts.  This page is about the company, not biology, although biology is pretty neat too.
+    </p>
+    <img id="aboutbanner" src="{{url_for('static', filename='img/aboutbanner.jpg')}}">
+    <p>
+        We're just getting our wheels under us now, but soon Metaphase will be producing a variety of digital and analog synthesizer modules for eurorack as well as other electronic musical tools and instruments.
+    </p>
+    <p>
+        Creativity and a desire to do things yourself seem frequently to go hand in hand, so it's important to us that others are able to find resources to educate themselves in whatever they want to learn.  To that end we will try to provide as much information as we can about our projects and research to help others more deeply understand our art and maybe be inspired to make something with (or of) our tools.
+    </p>
+    <p>&nbsp;</p>
+
+    <h1>Major Contributors are:</h1>
+    <img id="personal-photo" src="{{url_for('static', filename='img/MattsFace.jpg')}}">
+    <h2>Matt Zapp:</h2>
+    <p>
+            The founder who has been immersed in the technology supporting the creation of music for the past decade.  He has worn many hats over the years – audio archivist, recording engineer, composer, restoration engineer, foley artist, voice coach, sound designer, mastering engineer, and editor – but no hat has been quite as comfortable over the years as hardware design.
+        </p>
+        <p>
+            His degree from Oberlin Conservatory was capped by the development and construction of an ambitious cellular toy aimed at giving young children an opportunity to play with concepts of harmony.  His subsequent projects have carried with them the same motivation of finding new ways to harness technology for the purposes of making art and enriching expression.
+        </p>
+        <p>
+            He is a cycling enthusiast and finds is disconcerting to refer to himself in the third person.
+        </p>
+    <p>&nbsp;</p>
+
+    <p>
+    </p>
+</div>
+<div class="clearboth"> </div>
+{% endblock %}

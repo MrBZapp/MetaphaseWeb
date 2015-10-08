@@ -58,4 +58,5 @@ import metaphase.post_management
 import metaphase.user_management
 import metaphase.comment_management
 import metaphase.project_management
+import metaphase.about
 import metaphase.home
