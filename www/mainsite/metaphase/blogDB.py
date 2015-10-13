@@ -3,6 +3,21 @@ from sqlalchemy import Integer, String, types
 import hashlib
 from datetime import datetime as dt
 
+# helper table for storing tags
+tags = db.Table('tags',
+    db.Column('tag_id', db.Integer, db.ForeignKey('tag.id'), nullable=False),
+    db.Column('post_id', db.Integer, db.ForeignKey('post.id')),
+    db.Column('project_id', db.Integer, db.ForeignKey('project.id'))
+)
+
+
+class Tag(db.Model):
+    id = db.Column(db.Integer, primary_key=True)    # Tag ID
+    value = db.Column(db.String(144), unique=True, nullable=False)   # Tag name
+
+    def __init__(self, value):
+        self.value = value
+
 
 class User(db.Model):
     """Database Model of a Blog User."""
@@ -11,7 +26,7 @@ class User(db.Model):
     real_name = db.Column(String(144), nullable=False)
     email = db.Column(String(144), nullable=False)
     _hash = db.Column(String(144), nullable=False)
-    posts = db.relationship('Post', backref='user', lazy='dynamic')
+    posts = db.relationship('Post', backref='author', lazy='dynamic')
     _admin = db.Column(Integer)
 
     def __init__(self, username, real_name, email, password):
@@ -28,6 +43,7 @@ class User(db.Model):
 class Post(db.Model):
     """Database Model of a blog post or comment"""
     id = db.Column(Integer, primary_key=True)
+    project_id = db.Column('Project', db.ForeignKey('project.id'))
     parent_id = db.Column(Integer, db.ForeignKey('post.id'))
     author_id = db.Column(Integer, db.ForeignKey('user.id'))
     author_str = db.Column(String(144))
@@ -37,6 +53,7 @@ class Post(db.Model):
     comment_count = db.Column(Integer)
     rank = db.Column(Integer)
     parent = db.relationship('Post', remote_side=[id])
+    tags = db.relationship('Tag', secondary=tags, backref=db.backref('posts', lazy='dynamic'))
 
     def __init__(self, user, content, title=None, parent=None):
         """
@@ -67,11 +84,14 @@ class Post(db.Model):
 
 
 class Project(db.Model):
-    """Database Model of a blog post or comment"""
-    id = db.Column(Integer, primary_key=True)
-    title = db.Column(String(144), nullable=False)
-    pict = db.Column(String(144), nullable=False)
-    abstract = db.Column(types.Text(), nullable=False)
+    """Database Model of a full project"""
+    id = db.Column(Integer, primary_key=True)   # ID of the project
+    title = db.Column(String(144), nullable=False)  # Title of the project
+    pict = db.Column(String(144), nullable=False)   # Tile picture of the project
+    abstract = db.Column(types.Text(), nullable=False)  # Tile Abstract of the project
+    rel_files = db.Column(types.Text())  # CSV of related file paths
+    rel_posts = db.relationship('Post', remote_side=[id])  # Posts related to the project
+    tags = db.relationship('Tag', secondary=tags, backref=db.backref('projects', lazy='dynamic'))
 
     def __init__(self, title, pict, abstract):
         """

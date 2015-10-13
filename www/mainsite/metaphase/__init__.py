@@ -55,6 +55,7 @@ for model in models:
 
 # import the views
 import metaphase.post_management
+import metaphase.tagbrowse
 import metaphase.user_management
 import metaphase.comment_management
 import metaphase.project_management

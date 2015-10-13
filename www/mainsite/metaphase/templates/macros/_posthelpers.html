@@ -14,6 +14,12 @@
                 {% endif %}
             {% endif %}
         </p>
+        <p>
+            Tags:
+            {% for tag in data.tags %}
+                <a class="post_tag" href="{{ url_for('tags') }}?tag_id={{ tag.id }}">{{ tag.value }}</a>
+            {% endfor %}
+        </p>
     </div>
 </div>
 {% endmacro %}

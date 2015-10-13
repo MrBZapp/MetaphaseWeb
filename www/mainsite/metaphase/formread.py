@@ -22,6 +22,7 @@ class BlogForm(Form):
     headIMG = FileField('Upload Headline Image')
     bodyHTML = FileField('Upload Body')
     textHTML = TextAreaField('HTML', [validators.length(min=1)], id='textinput')
+    tags = StringField('Tags')
     delete = BooleanField('Delete')
 
 
@@ -36,3 +37,4 @@ class ProjectForm(Form):
     title = StringField('Title', [validators.length(min=1)])
     headIMG = FileField('Upload Headline Image')
     abstract = TextAreaField('Abstract', [validators.length(min=1)], id='textinput')
+    tags = StringField('Tags')

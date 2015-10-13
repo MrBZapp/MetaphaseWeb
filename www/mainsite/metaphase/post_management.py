@@ -5,8 +5,7 @@ from metaphase import app, db, formread, blogDB
 from _file_helpers import allowed_file
 from sqlalchemy import exc as sql_exception
 from metaphase.user_management import verify_user_log_in, verify_user_admin
-import werkzeug
-import os
+import werkzeug, os, string as s, csv
 
 @app.route('/post', methods=['GET', 'POST'])
 def post():
@@ -41,8 +40,19 @@ def post():
             else:
                 flash('If a file was submitted it was of a non-allowed format.')
         user = blogDB.User.query.filter_by(username=session['user']['username']).first()
+
         # add the entry to the database
         entry = blogDB.Post(user=user, title=form.title.data, content=content)
+
+        for tags in csv.reader(form.tags.data.split('\n'), delimiter=','):
+            for tag in tags:
+                new_tag = blogDB.Tag(tag.lstrip().rstrip().lower())
+                old_tag = blogDB.Tag.query.filter_by(value=new_tag.value).first()
+                if old_tag is None:
+                    entry.tags.append(new_tag)
+                else:
+                    entry.tags.append(old_tag)
+
         try:
             db.session.add(entry)
             db.session.commit()
@@ -106,7 +116,8 @@ def edit_post():
 
     else:
         # pre-populate the form:
-        form = formread.BlogForm(title=entry.title, textHTML=entry.content)
+        tags = [tag.value for tag in entry.tags]
+        form = formread.BlogForm(title=entry.title, textHTML=entry.content, tags=tags)
 
     base = app.jinja_env.get_template('edit-post.html')
     return render_template(base, title="editing post", form=form, id=request.args.get('entry'))
