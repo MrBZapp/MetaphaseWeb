@@ -1,8 +1,6 @@
 __author__ = 'Matt Zapp'
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import *
-from migrate import *
 from util import DictDiff
 
 # Global definitions
