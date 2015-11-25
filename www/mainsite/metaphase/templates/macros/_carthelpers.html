@@ -1,8 +1,11 @@
 {%  macro render_cart_item(item) %}
-<div class="cart-item">
-    {{ item.name }}
-    {{ item.real_price() }}
-    {{ item.qty }}
-    {{ item.real_price() * item.qty }}
-</div>
+<tr class="cart-item">
+    <td>
+        <input type="checkbox" name="remove" value="{{ item.id }}">
+    </td>
+    <td>{{ item.name }}</td>
+    <td>{{ item.real_price() }}</td>
+    <td>{{ item.qty }}</td>
+    <td>{{ item.real_price() * item.qty }}</td>
+</tr>
 {% endmacro %}

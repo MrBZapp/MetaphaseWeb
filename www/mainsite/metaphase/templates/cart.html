@@ -5,10 +5,28 @@
 
 {% if not cart %}
     <p>There are no items in your cart </p>
-{% endif %}
+{% else %}
 
-{% for item in cart: %}
-    {{ render_cart_item(item) }}
-{%endfor%}
+<form action="cart" method="get">
+    <table>
+        <tr>
+            <td>Remove</td>
+            <td>Product</td>
+            <td>Price</td>
+            <td>Quantity</td>
+            <td>Subtotal</td>
+        </tr>
+
+        {% for item in cart: %}
+            {{ render_cart_item(item) }}
+        {%endfor%}
+    </table>
+
+    <input type="submit" class="btn" name="action" value="Empty Cart">
+    <input type="submit" class="btn" name="action" value="Update Cart">
+    <input type="submit" class="btn  btn-detail" name="action" value="Checkout">
+
+</form>
+{% endif %}
 
 {% endblock %}
