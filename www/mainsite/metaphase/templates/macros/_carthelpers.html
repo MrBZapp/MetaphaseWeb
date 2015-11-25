@@ -1,0 +1,8 @@
+{%  macro render_cart_item(item) %}
+<div class="cart-item">
+    {{ item.name }}
+    {{ item.real_price() }}
+    {{ item.qty }}
+    {{ item.real_price() * item.qty }}
+</div>
+{% endmacro %}

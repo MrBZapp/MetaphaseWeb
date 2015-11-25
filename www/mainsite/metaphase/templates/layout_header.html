@@ -1,8 +1,29 @@
 <div id="titlebar">
 	<div id="logo">
-		<img class="tag" src="{{url_for('static', filename='img/metaphase3.png')}}">
+		<img class="tag" src="{{ url_for('static', filename='img/metaphase3.png') }}">
 	</div>
+
+
+    <div id="cart">
+        <a href="/cart">
+            <img src="{{ url_for('static', filename='img/kart.png') }}">
+            {% if session.cart_count %}
+                {{ session.cart_count }}
+            {% else %}
+                0
+            {% endif %}
+            Items: $
+            {% if session.cart_cost %}
+                {{ session.cart_cost }}
+            {% else %}
+                0.00
+            {% endif %}
+
+        </a>
+    </div>
+
 </div>
+
 <div id="submenu">
 	{% for href, id, caption in [
 	    ('/home', 'index', 'Home'),
@@ -12,9 +33,7 @@
 
         <div class="navblock">
 			<a  href="{{ href|e }}">
-			  <!--  <div class="nav-accent" {% if id == active_page %} id="active"{% endif %}>&nbsp;</div> -->
-	  	        <div class="nav-caption"> {{ caption|e }} </div>
-   	  	        <!-- <div class="nav-bottom"></div> !-->
+                <div class="nav-caption"> {{ caption|e }} </div>
   	        </a>
     	</div>
 	{% endfor %}

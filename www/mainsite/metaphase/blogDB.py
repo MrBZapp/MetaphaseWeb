@@ -129,7 +129,7 @@ class Product(db.Model):
     id = db.Column(Integer, primary_key=True)   # ID of the project
     name = db.Column(String(144), nullable=False)  # Name of the item
     pict = db.Column(String(144))   # Tile picture of the item
-    price = db.Column(Numeric(12, 2), primary_key=True)   # Price of the product
+    price = db.Column(Integer, primary_key=True)   # Price of the product
     qty = db.Column(Integer, nullable=False)  # stock in 'warehouse
     project_id = db.Column(Integer, db.ForeignKey('project.id'))
 
@@ -145,3 +145,6 @@ class Product(db.Model):
 
     def __repr__(self):
         return "<Product(name='%s')>" % self.name
+
+    def real_price(self):
+        return float(self.price)/100

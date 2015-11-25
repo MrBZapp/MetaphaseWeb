@@ -50,6 +50,15 @@
     color: #EEF;
 }
 
+#titlebar a {
+        color: #ccc;
+        text-decoration: none;
+    }
+
+#titlebar a:hover {
+    color: #EEF;
+}
+
     .nav-caption {
         text-align: center;
         vertical-align: middle;
@@ -72,6 +81,12 @@
     top: 56px;
 }
 
+#cart {
+    text-align: right;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+}
 #leftpad{
     width: 140px;
     min-width: 140px

@@ -1,0 +1,14 @@
+{% from "macros/_carthelpers.html" import render_cart_item %}
+{% extends "base.html" %}
+
+{% block layout_body %}
+
+{% if not cart %}
+    <p>There are no items in your cart </p>
+{% endif %}
+
+{% for item in cart: %}
+    {{ render_cart_item(item) }}
+{%endfor%}
+
+{% endblock %}
