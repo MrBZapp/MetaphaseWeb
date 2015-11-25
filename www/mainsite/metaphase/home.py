@@ -1,6 +1,6 @@
 __author__ = 'BroZapp'
 
-from flask import render_template, redirect, Markup, flash
+from flask import render_template, redirect, Markup
 from metaphase import app
 import metaphase.blogDB as blogread
 from sqlalchemy import exc as sql_exception

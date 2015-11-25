@@ -1,5 +1,6 @@
 __author__ = 'BroZapp'
-from wtforms import Form, BooleanField, StringField, PasswordField, validators, FileField, TextAreaField
+from wtforms import Form, BooleanField, StringField, PasswordField, SelectMultipleField,\
+    validators, FileField, TextAreaField
 
 
 class RegistrationForm(Form):
@@ -23,6 +24,7 @@ class BlogForm(Form):
     bodyHTML = FileField('Upload Body')
     textHTML = TextAreaField('HTML', [validators.length(min=1)], id='textinput')
     tags = StringField('Tags')
+    projects = SelectMultipleField('Attached projects')
     delete = BooleanField('Delete')
 
 

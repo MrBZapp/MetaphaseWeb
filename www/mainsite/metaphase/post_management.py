@@ -15,6 +15,9 @@ def post():
     # if the user is trying to post, make sure they have the credentials.
     verify_user_admin()
     form = formread.BlogForm(request.form)
+    projects = blogDB.Project.query.all()
+    form.projects.choices = [(project.id, project.title) for project in projects]
+
 
     # if we're submitting the form as opposed to requesting it do these things.
     if request.method == 'POST':
@@ -41,7 +44,6 @@ def post():
                 flash('If a file was submitted it was of a non-allowed format.')
         user = blogDB.User.query.filter_by(username=session['user']['username']).first()
 
-        # add the entry to the database
         entry = blogDB.Post(user=user, title=form.title.data, content=content)
 
         for tags in csv.reader(form.tags.data.split('\n'), delimiter=','):
@@ -53,9 +55,21 @@ def post():
                 else:
                     entry.tags.append(old_tag)
 
+        # attach the projects
+        form_projects = form.projects.data
+        projects = blogDB.Project.query.filter(blogDB.Project.id.in_(form_projects)).all()
+
+        # add the entry to the database
         try:
+
             db.session.add(entry)
             db.session.commit()
+
+            for project in projects:
+                project.rel_posts.append(entry)
+
+            db.session.commit()
+
             return redirect('/home')
         except sql_exception.OperationalError:
             flash('Post was not able to be submitted due to a server error.  Maybe try again?')
@@ -111,13 +125,23 @@ def edit_post():
                     entry.head_img = filename
                     flash("head image updated")
 
+        # locate associated projects
+        form_projects = form.projects.data
+        entry.set_projects(form_projects)
+
         db.session.commit()
         return redirect('/home')
 
     else:
         # pre-populate the form:
-        tags = [tag.value for tag in entry.tags]
+        tags = ', '.join([tag.value for tag in entry.tags])
+
         form = formread.BlogForm(title=entry.title, textHTML=entry.content, tags=tags)
+
+        projects = blogDB.Project.query.all()
+        form.projects.choices = [(project.id, project.title) for project in projects]
+        selected = [str(p.id) for p in entry.projects]
+        form.projects.data = selected
 
     base = app.jinja_env.get_template('edit-post.html')
     return render_template(base, title="editing post", form=form, id=request.args.get('entry'))

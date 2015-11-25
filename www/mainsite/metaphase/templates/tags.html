@@ -1,15 +1,32 @@
 {% extends "base.html" %}
+
+{% block pagestyle %}
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/projects-style.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/tag-style.css')}}"/>
+{% endblock %}
+
 {% block layout_body %}
-<h1>
-    {{ title }}
-</h1>
-<ul>
-    {% for entry in posts: %}
+{% from "macros/_projecthelpers.html" import render_project %}
+<div id="tagged-projects">
+    <h1>
+        Projects tagged as: {{ tag.value }}
+    </h1>
+    {% for project in projects: %}
+        {{ render_project(project) }}
+    {%endfor%}
+</div>
+<div id="tagged-posts">
+    <h1>
+        Blog posts tagged as: {{ tag.value }}
+    </h1>
+    <ul>
+        {% for entry in posts: %}
         <li>
             <a href="{{ url_for('comment') }}?post_id={{ entry.id }}">
                 <b>{{ entry.title~":" }}</b>
             </a>
-            posted by {{ entry.author_str }} at {{ entry.datetime }}
-    {%endfor%}
-</ul>
+            posted {{ entry.datetime }} by {{ entry.author_str }}
+            {%endfor%}
+    </ul>
+</div>
 {% endblock %}

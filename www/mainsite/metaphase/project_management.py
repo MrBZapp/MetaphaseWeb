@@ -9,11 +9,12 @@ import os
 
 @app.route('/projects')
 def projects():
-    project_id = request.args.get('post_id')
+    project_id = request.args.get('id')
     base = app.jinja_env.get_template('projects.html')
 
     if project_id is not None:
-        pass
+        project = blogDB.Project.query.filter_by(id=project_id).first()
+        return render_template('project_template.html', title=project.title, project=project, bootstrap=True)
     else:
         project_list = blogDB.Project.query.all()
 
@@ -57,6 +58,5 @@ def create_project():
             return redirect('/projects')
         except sql_exception.OperationalError:
             flash('Post was not able to be submitted due to a server error.  Maybe try again?')
-
 
     return render_template(base, title="creating project", form=form, bootstrap=True)

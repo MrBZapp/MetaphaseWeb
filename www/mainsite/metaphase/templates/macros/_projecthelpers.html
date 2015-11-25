@@ -1,15 +1,29 @@
 {%  macro render_project_list_item(data) %}
-<a href={{"projects/"~data.title}}>
-    <div class="project-row">
-        {% if data.pict != "" and data.headIMG is not none%}
-        {% endif %}
+<div class="project-tile">
+    <h1>{{data.title}}</h1>
+    {% if data.pict != "" and data.pict is not none%}
         <img src={{url_for('static', filename='projects/img/'~data.pict)}}>
-        <h1>{{data.title}}</h1>
+    {% endif %}
 
-        <div class="project-abstract">
-            {{data.abstract}}
-        </div>
+    <div class="project-abstract">
+        <p>{{data.abstract}}</p>
     </div>
-</a>
-<br>
+
+    <form action="projects" method="get">
+        <button type="submit" name="id" value="{{ data.id }}" class="btn btn-detail">Details</button>
+    </form>
+
+    <form action="order" method="get">
+        {% for product in data.rel_products %}
+            <button type="submit" name="product" value = "{{ data.id }}" class="btn">
+                {{ product.name }} - {{ product.price }}
+                <br>
+                {% if product.qty < 1 %}
+                    Out of stock! (waitlist)
+                {% else %}
+                    In stock: {{ product.qty }}
+                {% endif %}
+        {% endfor %}
+    </form>
+</div>
 {% endmacro %}

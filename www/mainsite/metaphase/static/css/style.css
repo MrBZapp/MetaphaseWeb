@@ -50,6 +50,7 @@ body {
 }
 
 
+
 h1 {
     display:span;
     margin-top: 2px;
@@ -67,8 +68,28 @@ h2 {
     color: #eee;
 }
 
-.button {
+.btn {
+    color: #ccc;
+    border-radius: 0;
+    background-color: #555;
+}
+
+.btn:hover{
+    background-color: #777;
+    color: #ddd;
+}
+
+.btn-oos:hover {
+}
+
+.btn-detail {
+    background-color: #D80;
     color: #222;
+}
+
+.btn-detail:hover {
+    background-color: #FA0;
+    color: #000;
 }
 
 #title{
