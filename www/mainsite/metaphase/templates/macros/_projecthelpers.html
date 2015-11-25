@@ -16,7 +16,7 @@
     <form action="order" method="get">
         {% for product in data.rel_products %}
             <button type="submit" name="product" value = "{{ data.id }}" class="btn">
-                {{ product.name }} - {{ product.price }}
+                {{ product.name }} - {{ product.real_price() }}
                 <br>
                 {% if product.qty < 1 %}
                     Out of stock! (waitlist)
