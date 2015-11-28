@@ -1,0 +1,13 @@
+{%  macro render_cart_item(item, color) %}
+<div class="cart-item cart-{{ color }}">
+    <span class="cart-cell remove-item">
+        <input type="checkbox" name="remove" value="{{ item.id }}">
+    </span>
+    <span class="cart-cell item-name">{{ item.project.title }} - {{ item.name }}</span>
+    <span class="cart-cell item-price">${{ (item.price / 100) }}</span>
+    <span class="cart-cell item-qty">
+          <input type="number" class="number-input" name="{{ item.id }}" min="0" step="1" value="{{ item.qty }}">
+    </span>
+    <span class="cart-cell item-subtotal">{{ (item.price * item.qty)/100 }}</span>
+</div>
+{% endmacro %}

@@ -104,6 +104,11 @@ h2 {
 }
 
 
+.number-input {
+    color: #222;
+}
+
+
 .post .headline-image{
     margin-left: auto;
     margin-right: auto;
@@ -117,6 +122,8 @@ h2 {
     padding: 10px 10px 10px 10px;
     text-shadow: 2px 2px 5px #222 ;
 }
+
+
 
 .post .footer {
     #background-color: #666;

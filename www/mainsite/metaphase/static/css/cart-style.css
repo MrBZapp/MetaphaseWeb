@@ -1,0 +1,49 @@
+.table-cart {
+    width:100%;
+    display: table;
+}
+
+.table-header {
+    text-align: center;
+    font-weight: bold;
+    display: table-row;
+}
+
+.table-header .cart-cell{
+    border-bottom: solid #CCC 1px;
+}
+.cart-item {
+    text-align: center;
+    display: table-row;
+}
+
+.cart-cell {
+    padding: 5px;
+    display: table-cell;
+}
+
+.cart-div-dark{
+    background-color: #444;
+}
+
+.remove-item {
+    max-width: 100px;
+}
+
+#cart-shipping {
+    display: inline;
+    padding: 10px;
+}
+
+button, select {
+    color: #222;
+}
+
+.number-input {
+    color: #222;
+    width: 50%;
+}
+
+.cart-div-light{
+    background-color: #555;
+}

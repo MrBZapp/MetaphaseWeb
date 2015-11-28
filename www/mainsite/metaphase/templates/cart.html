@@ -1,32 +1,51 @@
-{% from "macros/_carthelpers.html" import render_cart_item %}
+{% from "macros/_shophelpers.html" import render_cart_item %}
 {% extends "base.html" %}
 
-{% block layout_body %}
+{% block pagestyle %}
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/cart-style.css')}}"/>
+{% endblock %}
 
+{% block layout_body %}
 {% if not cart %}
     <p>There are no items in your cart </p>
 {% else %}
 
 <form action="cart" method="get">
-    <table>
-        <tr>
-            <td>Remove</td>
-            <td>Product</td>
-            <td>Price</td>
-            <td>Quantity</td>
-            <td>Subtotal</td>
-        </tr>
+    <div class="table-cart">
+        <div class="table-header">
+            <span class="cart-cell remove-item">Remove</span>
+            <span class="cart-cell item-name">Product</span>
+            <span class="cart-cell item-price">Price</span>
+            <span class="cart-cell item-qty">Quantity</span>
+            <span class="cart-cell item-subtotal">Subtotal</span>
+        </div>
 
         {% for item in cart: %}
-            {{ render_cart_item(item) }}
-        {%endfor%}
-    </table>
+            {{ render_cart_item(item, loop.cycle('div-dark', 'div-light') ) }}
+        {% endfor %}
 
-    <input type="submit" class="btn" name="action" value="Empty Cart">
-    <input type="submit" class="btn" name="action" value="Update Cart">
-    <input type="submit" class="btn  btn-detail" name="action" value="Checkout">
-
+        <div>
+            <div>&nbsp;</div>
+        </div>
+        <div>
+            <div>
+                Total: ${{ session.cart_cost / 100 }}
+            </div>
+        </div>
+    </div>
+    <div>
+        <div>Shipping:
+            <select name="Shipping">
+            {% for opt in shipping_options %}
+            <option value="{{ opt.name }}">{{ opt.price }} - {{ opt.name }}</option>
+            {% endfor %}
+        </select>
+        </div>
+    </div>
+    <br>
+    <input type="submit" class="btn btn-cart" name="action" value="Update Cart">
+    <input type="submit" class="btn btn-cart" name="action" value="Empty Cart">
+    <input type="submit" class="btn btn-cart btn-detail" name="action" value="Checkout">
 </form>
 {% endif %}
-
 {% endblock %}

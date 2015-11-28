@@ -1,0 +1,24 @@
+{% from "macros/_shophelpers.html" import render_cart_item %}
+{% extends "base.html" %}
+
+{% block pagestyle %}
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/checkout-style.css')}}"/>
+{% endblock %}
+
+{% block layout_body %}
+<form method=post enctype="multipart/form-data" action="{{ url_for('checkout') }}">
+    <dl>
+        {{ render_field(form.title) }}
+        {{ render_field(form.headIMG) }}
+        {{ render_field(form.textHTML) }}
+        {{ render_field(form.tags) }}
+        {{ render_field(form.projects) }}
+        {{ render_field(form.delete) }}
+    </dl>
+    <p>
+        <input type=submit value='update' class="button">
+    </p>
+
+</form>
+{% endif %}
+{% endblock %}

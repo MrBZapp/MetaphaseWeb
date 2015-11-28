@@ -40,3 +40,12 @@ class ProjectForm(Form):
     headIMG = FileField('Upload Headline Image')
     abstract = TextAreaField('Abstract', [validators.length(min=1)], id='textinput')
     tags = StringField('Tags')
+
+class CheckoutForm(Form):
+    first_name = StringField('First name', [validators.length(min=1)])
+    last_name = StringField('Last name', [validators.length(min=1)])
+    address_1 = StringField('Address 1', [validators.length(min=1)])
+    address_2 = StringField('Address 2', [validators.length(min=1)])
+    city = StringField('City/Town', [validators.length(min=1)])
+    state = StringField('State', [validators.length(min=1)])
+    zip_code = StringField('Zip Code', [validators.length(min=1)])

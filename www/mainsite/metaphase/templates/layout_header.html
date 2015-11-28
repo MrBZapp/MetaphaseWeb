@@ -14,7 +14,7 @@
             {% endif %}
             Items: $
             {% if session.cart_cost %}
-                {{ session.cart_cost }}
+                {{ session.cart_cost / 100 }}
             {% else %}
                 0.00
             {% endif %}
