@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block layout_body %}
+{% from "macros/_formhelpers.html" import render_field %}
+<h1>Out Of Stock: {{ product.project.title}} - {{ product.name }}</h1>
+<p>The product <i>{{ product.project.title}} - {{ product.name }}</i> is currently unavailable, but may be available soon.  If you leave your name and e-mail address, you'll be notified as soon as it becomes available again.</p>
+<br>
+<form method=post enctype="multipart/form-data" action="/waitlist?product={{ product.id }}">
+    <dl>
+        {{ render_field(form.name) }}
+        {{ render_field(form.email) }}
+        <br>
+        {{ render_field(form.create_account) }}
+    </dl>
+  <p>
+      <input type=submit value='Notify Me!' class="btn">
+  </p>
+</form>
+{% endblock %}

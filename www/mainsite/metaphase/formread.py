@@ -41,6 +41,12 @@ class ProjectForm(Form):
     abstract = TextAreaField('Abstract', [validators.length(min=1)], id='textinput')
     tags = StringField('Tags')
 
+
+class WaitlistForm(Form):
+    name = StringField('Name', [validators.length(min=1)])
+    email = StringField('E-Mail address', [validators.email()])
+    create_account = BooleanField('Create Account')
+
 class CheckoutForm(Form):
     first_name = StringField('First name', [validators.length(min=1)])
     last_name = StringField('Last name', [validators.length(min=1)])
@@ -49,3 +55,4 @@ class CheckoutForm(Form):
     city = StringField('City/Town', [validators.length(min=1)])
     state = StringField('State', [validators.length(min=1)])
     zip_code = StringField('Zip Code', [validators.length(min=1)])
+    email = StringField('E-Mail address', [validators.length(min=1)])

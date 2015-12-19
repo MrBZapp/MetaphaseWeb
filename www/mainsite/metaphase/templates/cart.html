@@ -10,7 +10,7 @@
     <p>There are no items in your cart </p>
 {% else %}
 
-<form action="cart" method="get">
+<form action="cart" method="post">
     <div class="table-cart">
         <div class="table-header">
             <span class="cart-cell remove-item">Remove</span>
@@ -37,7 +37,7 @@
         <div>Shipping:
             <select name="Shipping">
             {% for opt in shipping_options %}
-            <option value="{{ opt.name }}">{{ opt.price }} - {{ opt.name }}</option>
+            <option value="{{ opt }}">{{ opt }} - {{ shipping_options[opt] / 100 }}</option>
             {% endfor %}
         </select>
         </div>
